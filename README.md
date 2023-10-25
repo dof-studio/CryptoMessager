@@ -1,7 +1,7 @@
 ![CryptoMessager logo](https://github.com/dof-studio/CryptoMessager/assets/144514436/23420e29-5724-467c-be08-5fca860a5135)
 
 # 01. Introduction
-CryptoMessager, with its GUI frontend CryptoMessager_GUI, is a user-friendly toolkit for encrypted communications capable to use our self-developed, patented Hybrid-Minus set of encryption algorithms. With automatic encryption and decryption enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption process only requires you to use the shortcut keys Ctrl+C, Ctrl+V, and is automatically completed during your copying and pasting in less than a second. 
+`CryptoMessager`, with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for encrypted communications capable to use our self-developed, patented Hybrid-Minus set of encryption algorithms. With automatic encryption and decryption enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption process only requires you to use the shortcut keys Ctrl+C, Ctrl+V, and is automatically completed during your copying and pasting in less than a second. 
 
 # 02. Features
 
