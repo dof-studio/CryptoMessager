@@ -1,3 +1,5 @@
+![CryptoMessager logo](https://github.com/dof-studio/CryptoMessager/assets/144514436/23420e29-5724-467c-be08-5fca860a5135)
+
 # 01. Introduction
 
 
