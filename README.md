@@ -10,7 +10,7 @@
 # 03. Basic GUI Introduction
 The graph below briefly shows some sasic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
-
+![CryptoMessager_GUI_Display_EN_0 0 1 1](https://github.com/dof-studio/CryptoMessager/assets/144514436/31bda0ea-dda0-4182-bf42-b0a2bf69734d)
 
 Please note that the English version of this illustration is not the only version provided, some translated versions of are also availiable in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and further usage, can also be found in subfolders of the "DOCS".
 
