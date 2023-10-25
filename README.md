@@ -1,7 +1,7 @@
 ![CryptoMessager logo](https://github.com/dof-studio/CryptoMessager/assets/144514436/23420e29-5724-467c-be08-5fca860a5135)
 
 # 01. Introduction
-
+CryptoMessager, with its GUI frontend CryptoMessager_GUI, is a user-friendly toolkit for encrypted communications capable to use our self-developed, patented Hybrid-Minus set of encryption algorithms. With automatic encryption and decryption enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption process only requires you to use the shortcut keys Ctrl+C, Ctrl+V, and is automatically completed during your copying and pasting in less than a second. 
 
 # 02. Features
 
@@ -17,16 +17,12 @@ Please note that the English version of this illustration is not the only versio
 # 04. Future Updates
 ### Coming Soon
 - `...`
-### Known Bugs
-- ``
+### Already Known Bugs
+- `Unexpected Flashback` - Due to some unknown problems (mainly from the backend C++ process), this software might flashback every 60 minutes or so. Therefore, in order to avoid any losses of registrations of clients and logs generated along with the encryption process, please manually shut off the software when you are not using it.
 - `...`
 
 
-# 05. Using Examples
-
-
-
-# 06. Notifications
+# 05. Notifications
 ### License Exception
 Please read the following terms carefully and check whether you, or your entity, satisfy the requirement of using this software `CryptoMessager`.
 Our team DOF Studio is a non-profitable organization which aims at pursuing a world without War, Discrimination, Unequity, and Anti-democracy.
