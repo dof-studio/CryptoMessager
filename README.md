@@ -8,11 +8,11 @@
 
 
 # 03. Basic GUI Introduction
-The graph below will briefly introduce some sasic usage of the buttons, signals, input bars, and consoles in the GUI system.
+The graph below briefly shows some sasic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
 ![EN_CRYPTOMSG](https://github.com/dof-studio/CryptoMessager/assets/144514436/001ebd77-9c0e-4b87-98d2-a7e53c429994)
 
-Please note that the English version of this illustration is not the only version provided, some translated versions of are also availiable in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and basic uses, can also be found in subfolders of the "DOCS".
+Please note that the English version of this illustration is not the only version provided, some translated versions of are also availiable in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and further usage, can also be found in subfolders of the "DOCS".
 
 # 04. Future Updates
 ### Coming Soon
