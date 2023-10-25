@@ -6,13 +6,10 @@
 # 02. Features
 
 
-# 03. How To Install
+# 03. Basic GUI Introduction
 
 
-# 04. User Tutorial
-
-
-# 05. Future Updates
+# 04. Future Updates
 ### Coming Soon
 - `...`
 ### Known Bugs
@@ -20,11 +17,11 @@
 - `...`
 
 
-# 06. Examples
+# 05. Using Examples
 
 
 
-# 07. Notifications
+# 06. Notifications
 ### License Exception
 Please read the following terms carefully and check whether you, or your entity, satisfy the requirement of using this software `CryptoMessager`.
 Our team DOF Studio is a non-profitable organization which aims at pursuing a world without War, Discrimination, Unequity, and Anti-democracy.
