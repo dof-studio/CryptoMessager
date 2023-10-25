@@ -1,0 +1,13 @@
+// NEWS
+// ./"NEWS"
+// NEWS
+
+if(__VERSION__ == "beta 0.0.1.1.231022")
+{
+    NEWS = { "Original Release",
+    }
+}
+
+// NEWS
+//
+// DOF Studio
