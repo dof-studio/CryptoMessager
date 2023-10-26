@@ -8,14 +8,18 @@
 
 
 # 03. Basic GUI Introduction
-The graph below briefly shows some sasic usage of the buttons, signals, input bars, and consoles in the GUI system.
+The  `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
 ![CryptoMessager_GUI_Display_EN_0 0 1 1](https://github.com/dof-studio/CryptoMessager/assets/144514436/844500ae-3058-4c30-9437-4b4f2d11013b)
 
-Please note that the English version of this illustration is not the only version provided, some translated versions of are also availiable in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and further usage, can also be found in subfolders of the "DOCS".
+Please note that the English version of this illustration is not the only version provided, some translated versions of are also availiable in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and further usage, can also be found in subfolders of the "DOCS" (highly recommended to have a read).
 
 # 04. Future Updates
 ### Coming Soon
+​- `One-Click File Encryption and Decryption` - When this feature arrives, you will be able to encrypt and decrypt files using the same shortcut keys, Ctrl + C and Ctrl + V, as you can currently do with your text messages. Feel free to confidently share whatever you want with this feature protected your utmost privacy.
+- `Multiple Algorithms Supported` - Multiple Hybird-Minus encryption algorithms will be available, and you will then be able to choose which one you like best for your encryption and decryption. It should be noted that the responsibility of multiple time-performance trade-off should be bear, since basically, the more time you spend encrypting, the safer your ciphertext will be.
+- `Suspended Status Light` - In addition to using the fundamental form to control the ON/OFF, you will see a meticulously designed `Status Light` displayed on your screen, and by clicking the `Status Light` with a button function, you can switch to turn on or turn off the main button while visually seeing the status of the backend system.
+- `Multidimensional Key Distribution` - This implementation will also be an esteemed feature according to our patent. Equipped with `Multidimensional Key Distribution`, the key distribution step will become ultra-secure, even allowing you to distribute your SMS code online!​
 - `...`
 ### Already Known Bugs
 - `Unexpected Flashback` - Due to some unknown problems (mainly from the backend C++ process), this software might flashback every 60 minutes or so. Therefore, in order to avoid any losses of registrations of clients and logs generated along with the encryption process, please manually shut off the software when you are not using it.
@@ -33,7 +37,10 @@ Hence, this software is based on a `conditional Apache License Version 2.0`, whi
 
 If you satisfy ANY ONE of those prohibitive terms listed above, this software is PROHIBITED for you to use. Otherwise, your using limitation belongs to stipulations in `Apache License Version 2.0`.
 
-
+### Using Experience
+- Most important! In the current version, DO NOT use the internet to transmit any `SMS Code`, since whoever receives, or just steals it, she will then be able to effortlessly decrypt whatever you say.
+- Important! Please turn the main button OFF when you are NOT USING the automatic encryption and decryption function, since whatever you copy, although you are not intending to encrypt, they will be recognized as plaintext without false distinction and then encrypted.
+- `...`
 
 Yours,
 
