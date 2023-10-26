@@ -26,7 +26,7 @@ Please note that the English version of this illustration is not the only versio
 
 # 04. Future Updates
 ### Coming Soon
-​- `One-Click File Encryption and Decryption` - When this feature arrives, you will be able to encrypt and decrypt files using the same shortcut keys, Ctrl + C and Ctrl + V, as you can currently do with your text messages. Feel free to confidently share whatever you want with this feature protected your utmost privacy.
+- `One-Click File Encryption and Decryption` - When this feature arrives, you will be able to encrypt and decrypt files using the same shortcut keys, Ctrl + C and Ctrl + V, as you can currently do with your text messages. Feel free to confidently share whatever you want with this feature protected your utmost privacy.
 - `Multiple Algorithms Supported` - Multiple Hybird-Minus encryption algorithms will be available, and you will then be able to choose which one you like best for your encryption and decryption. It should be noted that the responsibility of multiple time-performance trade-off should be bear, since basically, the more time you spend encrypting, the safer your ciphertext will be.
 - `Suspended Status Light` - In addition to using the fundamental form to control the ON/OFF, you will see a meticulously designed `Status Light` displayed on your screen, and by clicking the `Status Light` with a button function, you can switch to turn on or turn off the main button while visually seeing the status of the backend system.
 - `Multidimensional Key Distribution` - This implementation will also be an esteemed feature according to our patent. Equipped with `Multidimensional Key Distribution`, the key distribution step will become ultra-secure, even allowing you to distribute your SMS code online!​
