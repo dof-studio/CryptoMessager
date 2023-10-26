@@ -38,8 +38,8 @@ Hence, this software is based on a `conditional Apache License Version 2.0`, whi
 If you satisfy ANY ONE of those prohibitive terms listed above, this software is PROHIBITED for you to use. Otherwise, your using limitation belongs to stipulations in `Apache License Version 2.0`.
 
 ### Using Experience
-- Most important! In the current version, DO NOT use the internet to transmit any `SMS Code`, since whoever receives, or just steals it, she will then be able to effortlessly decrypt whatever you say.
-- Important! Please turn the main button OFF when you are NOT USING the automatic encryption and decryption function, since whatever you copy, although you are not intending to encrypt, they will be recognized as plaintext without false distinction and then encrypted.
+- `Most important!` In the current version, DO NOT use the internet to transmit any `SMS Code`, since whoever receives, or just steals it, she will then be able to effortlessly decrypt whatever you say.
+- `Most important!` Please turn the main button OFF when you are NOT USING the automatic encryption and decryption function, since whatever you copy, although you are not intending to encrypt, they will be recognized as plaintext without false distinction and then encrypted.
 - `...`
 
 Yours,
