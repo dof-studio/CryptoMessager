@@ -3,6 +3,12 @@
 // LIBDEPENS
 
 // PROJECT-INTERNAL LIB DEPENDENCE
-// -> 
+// -> Crypto        (developed by DOF Studio)
+// -> Srand         (developed by DOF Studio)
+// -> MachineID     (developed by DOF Studio)
+// -> boost
+// -> zip7z
+// -> Crypto++
+// -> mbedtls
 //
 // DOF Studio
