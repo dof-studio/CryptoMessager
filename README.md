@@ -28,22 +28,25 @@
 
 
 # 03. Hybrid-Minus Algorithms Supported
-- `Mimoji` - Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel -----
-- `Leaf  ` - Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel *****
+- `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel -----
+- `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel *****
+- `Kaze  ` - Coming Soon ...
+- `Kuze  ` - Coming Soon ...
+- `Inoha ` - Coming Soon ...
 - `...`
 
 
 
 # 04. Basic GUI Introduction
 ### GUI Usage
-The  `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
+The `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
 ![CryptoMessager_GUI_Display_EN_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/a550fca7-f932-4827-bc94-ca12b14862d7)
 
-Please note that the English version of this illustration is not the only version provided, some translated versions of are also available in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and further usage, can also be found in subfolders of the "DOCS" (highly recommended to have a read).
+Please note that the English version of this illustration is not the only version provided, some translated versions of it are also available in the "DOCS" directory. Moreover, a specific, `Step-by-step Tutorial`, including directions of installation and further usage can also be found in subfolders of the "DOCS" (highly recommended to have a read).
 
 ### Command Line Usage
-The  `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
+The `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
 ![CryptoMessager_Commands](https://github.com/dof-studio/CryptoMessager/assets/144514436/92338cb9-edf7-4e2a-b056-9b1c0cbd3855)
 
@@ -54,10 +57,11 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 # 05. Future Updates
 ### Coming Soon
 - `More Diversified Algorithms Supported` - Multiple Hybird-Minus encryption algorithms will be available, and you will then be able to choose which one you like best for your encryption and decryption. It should be noted that the responsibility of multiple time-performance trade-off should be bear. Basically, the more time you spend on the encryption process, the safer your ciphertext will be.
-- `Limited SMS Code` - In order to ensure that your SMS Code is not maliciously used or forwarded, we will further improve the SMS Code generation mechanism and add a time limited verification mechanism to ensure that your SMS Code is only valid for a few minutes, so that you can ensure that your customers will not forward your SMS Code to other unrecognized and untrustworthy recipients.
+- `Restricted SMS Code` - In order to ensure that your SMS Code is not maliciously used or forwarded, we will further improve the SMS Code generation mechanism and add a time limited verification mechanism to ensure that your SMS Code is only valid for a few minutes, so that you can ensure that your customers will not forward your SMS Code to other unrecognized and untrustworthy recipients.
 - `Multidimensional Key Distribution` - This implementation will also be an esteemed feature according to our patent. Equipped with the Multidimensional Key Distribution system, the key distribution step will become ultra-secure, even allowing you to distribute your SMS Code online, and under any risky conditions!​
 - `Integrity Verification` - We will support stricter technical verification in the future for any malicious modification of the CryptoMessage program itself, and will strictly punish any malicious behavior that may affect your ciphertext security. Pursuing your privacy and security is our ultimate goal!
 - `...`
+
 ### Already Known Bugs
 - `GUI Command Line Input Check Issue` - When you click and type words between the input notation `>> `, unexpected flashbacks may be encountered. But fortunately, when you are not deliberately trying to cause it, the bug does not normally appear.​
 - `...`
@@ -76,8 +80,9 @@ Hence, this software is based on a `conditional Apache License Version 2.0`, whi
 If you satisfy ANY ONE of those prohibitive terms listed above, this software is PROHIBITED for you to use. Otherwise, your using limitation belongs to stipulations in `Apache License Version 2.0`.
 
 ### Using Experience
-- `Most important!` In the current version, DO NOT use the internet to transmit any `SMS Code`. It is because whoever receives, or just steals it, she will then be able to effortlessly decrypt whatever you say.
-- `Most important!` Please turn the main button OFF when you are NOT USING the automatic encrypting and decrypting system. It is because whatever you copy, although you are not intending to encrypt, it will be recognized as a plaintext without false distinction and then encrypted.
+- `Most Important` - In the current version, DO NOT use the internet to transmit any plaintext `SMS Code`. It is because whoever receives, or just steals it, she will then be able to effortlessly decrypt whatever you encrypted.
+- `Most Important`  - Please turn the main button OFF when you are NOT USING the automatic encrypting and decrypting system. It is because whatever you copy, although you are not intending to encrypt, it will be recognized as a plaintext without false distinction and then encrypted.
+- `Helpful` - Please use the command `CLC` or `CLRCLIP` to refresh your clipboard before recopying something when your `Ctrl + C` fails to detect a change of the data intended to be encrypted/decrypted.
 - `...`
 
 
