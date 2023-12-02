@@ -47,7 +47,7 @@ The `graph` below briefly shows some basic usage of the buttons, signals, input 
 Please note that the English version of this illustration is not the only version provided, some translated versions of it are also available in the "DOCS" directory. Moreover, a specific, `Step-by-step Tutorial`, including directions of installation and further usage can also be found in subfolders of the "DOCS" (highly recommended to have a read).
 
 ### Command Line Usage
-The `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
+The `graph` below briefly shows a majority of supported commands that can be used in the interactive command line console.
 
 ![CryptoMessager_Commands](https://github.com/dof-studio/CryptoMessager/assets/144514436/92338cb9-edf7-4e2a-b056-9b1c0cbd3855)
 
