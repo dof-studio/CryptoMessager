@@ -61,6 +61,9 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 - `Restricted SMS Code` - In order to ensure that your SMS Code is not maliciously used or forwarded, we will further improve the SMS Code generation mechanism and add a time limited verification mechanism to ensure that your SMS Code is only valid for a few minutes, so that you can ensure that your customers will not forward your SMS Code to other unrecognized and untrustworthy recipients.
 - `Multidimensional Key Distribution` - This implementation will also be an esteemed feature according to our patent. Equipped with the Multidimensional Key Distribution system, the key distribution step will become ultra-secure, even allowing you to distribute your SMS Code online, and under any risky conditions!​
 - `Integrity Verification` - We will support stricter technical verification in the future for any malicious modification of the CryptoMessage program itself, and will strictly punish any malicious behavior that may affect your ciphertext security. Pursuing your privacy and security is our ultimate goal!
+- `Rich-Text and HTML Encryption` - You can encrypted formated Microsoft Word contents.
+- `Console with Color Annotations` - Input and output will be more clear.
+- `Beautify Our GUI Form` - Will it come soon, or, be put off forever?
 - `...`
 
 ### Already Known Bugs
