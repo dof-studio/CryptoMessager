@@ -16,7 +16,14 @@
 
 
 
-# 03. Basic GUI Introduction
+# 03. Hybrid-Minus Algorithms Supported
+- `Mimoji` - Security ※※ - - - Complexity ※※※ - - Short Text Extension ※※ - - - Long Text Extension ※※※ - - Parallel ×  Supported Since Version 0.0.1.1
+- `Leaf`   - Security ※※※ - - Complexity ※※ - - - Short Text Extension ※※※ - - Long Text Extension ※※ - - - Parallel √  Supported Since Version 0.0.1.2
+- `...`
+
+
+
+# 04. Basic GUI Introduction
 The  `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
 ![CryptoMessager_GUI_Display_EN_0 0 1 1](https://github.com/dof-studio/CryptoMessager/assets/144514436/844500ae-3058-4c30-9437-4b4f2d11013b)
@@ -25,7 +32,7 @@ Please note that the English version of this illustration is not the only versio
 
 
 
-# 04. Future Updates
+# 05. Future Updates
 ### Coming Soon
 - `One-Click File Encryption and Decryption` - When this feature arrives, you will be able to encrypt and decrypt files using the same shortcut keys, Ctrl + C and Ctrl + V, as you can currently do with your text messages. Feel free to confidently share whatever you want with this feature protected your utmost privacy.
 - `Multiple Algorithms Supported` - Multiple Hybird-Minus encryption algorithms will be available, and you will then be able to choose which one you like best for your encryption and decryption. It should be noted that the responsibility of multiple time-performance trade-off should be bear, since basically, the more time you spend encrypting, the safer your ciphertext will be.
@@ -38,7 +45,7 @@ Please note that the English version of this illustration is not the only versio
 
 
 
-# 05. Notifications
+# 06. Notifications
 ### License Exception
 Please read the following terms carefully and check whether you, or your entity, satisfy the requirement of using this software `CryptoMessager`.
 Our team DOF Studio is a non-profitable organization which aims at pursuing a world without War, Discrimination, Unequity, and Anti-democracy.
