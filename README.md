@@ -28,6 +28,7 @@
 
 
 # 03. Hybrid-Minus Algorithms Supported
+### Algorithms Are Automatically Switched
 - `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel ---
 - `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel ***
 - `Kaze  ` - Coming Soon ...
