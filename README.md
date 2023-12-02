@@ -40,14 +40,14 @@ The  `graph` below briefly shows some basic usage of the buttons, signals, input
 
 ![CryptoMessager_GUI_Display_EN_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/a550fca7-f932-4827-bc94-ca12b14862d7)
 
-Please note that the English version of this illustration is not the only version provided, some translated versions of are also availiable in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and further usage, can also be found in subfolders of the "DOCS" (highly recommended to have a read).
+Please note that the English version of this illustration is not the only version provided, some translated versions of are also available in the "DOCS" directory, and a specific, step-by-step Tutorial, including directions of installation and further usage, can also be found in subfolders of the "DOCS" (highly recommended to have a read).
 
 ### Command Line Usage
 The  `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
 ![CryptoMessager_Commands](https://github.com/dof-studio/CryptoMessager/assets/144514436/92338cb9-edf7-4e2a-b056-9b1c0cbd3855)
 
-Please note that you can use a `HELP;` command in the command line to get a similar copy of this usage. Moreover, you can use a `HELP [Arg];` command with 1 arg in the command line console to get a specific description of how to use a certain command, for example `HELP HELP;`.
+Please note that you can use a `HELP;` command in the command line to get a similar copy of this usage. Moreover, you can use a `HELP [Arg];` command with 1 arg in the command line console to get a specific description of how to use a certain command, for example `HELP HELP;` In this version, both Upper-case commands or Lower-case commands are supported.
 
 
 
