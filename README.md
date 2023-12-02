@@ -25,6 +25,9 @@
 - `Forever Free` - Free Is Our Greatest Justice! We use the conditional 'Apache-2.0' license, which protects our rights and interests in the developed software while allowing you to use the software unrestricted, free, and permanent. Our ultimate target is to provide free services that help everyone's daily life!
 - `...`
 
+### One Graph To Show How To Use It
+![CryptoMessager_BasicUsage_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/91c905ce-587b-40c1-8d48-441c6ae08cc5)
+
 
 
 # 03. Hybrid-Minus Algorithms Supported
