@@ -7,21 +7,22 @@
 
 # 02. Features
 ### Novel Updates
-- `Gargantuan Update` - A brand-new version beta 0.0.1.2 has come!
-- `File Structure Encryption` - You can now encrypt and decrypt any single file, any files, or folders (not only texts) into/from a decrypted `.denc.bin` format by using the identical shortcut keys `Ctrl + C` and `Ctrl + V`. The backend monitoring system will be automatically invoked and functioned, while it may take some time to complete the encrypting/decrypting process when files are too big.
+- `Gargantuan Update` - A brand-new version beta 0.0.1.2 has come! Here are what we updated!
+- `One-Click File Structure Encryption` - You can now encrypt and decrypt any single file, any files, or folders (not only texts) into/from a decrypted `.denc.bin` format by using the identical shortcut keys `Ctrl + C` and `Ctrl + V`. The backend monitoring system will be automatically invoked and functioned, while it may take some time to complete the encrypting/decrypting process when files are too big.
 - `Partial Ciphertext` - Don't you just want to encrypt a part of your text instead of every single character? We can now officially assert that we can do it! By using a `*<...>*` notation in your plaintest, where the `...` represents the part that you are intending to transform into cipertexts, you can copy and paste the whole plain-cipher mixed passage, but only encrypt/decrypt the part that you want to.
 - `Encrypt Text To A File` - Is your plaintext too long to be sent on an online platform? You can encrypt your text into a file by adding a `====!!!!` notation at the very beginning or the end of the whole text to encrypt it into a copiable file, instead of encrypting it into a copiable ciphertext. Let's try to encrypt a long article into a file automatically!
 - `Ultrasafe SMS and DEL Code` - More secure `SMS Code` and `DEL Code` updated! Moreover, old types of `SMS Code` also supported! The updated version not only provide a more readible and safer `SMS Code` but also support to register any old versions of `SMS Code` that your friend sent to you. Please refer to our document to see more details to transform your old database into a new one.
 - `Interactive Command Line System` - Are you bored with clicking buttons? A new command line system has been equipped within the GUI frontend, where you can use your keyboard to do everything, even including something that buttons are not able to do! Get start by entering a `Help` and clicking the enter key to see a variety of commands and syntax.
-- `Standalone HintLight` - Are you bored with our dull GUI form? Let's control all daily tasks by using a floating button. More details of how to use the Standalone HintLight can be found in our document.
+- `Standalone HintLight` - Are you bored with our dull, outmoded GUI form? Let's control all daily tasks by using a floating, movable rectangle (while it may still be kind of dull). More details of how to use the Standalone HintLight can be found in our document.
+- `Multi-Thread Encryption` - Having a Core i9 14900K? We can now utilize at most 20 threads (with AVX-2 supported) to conduct multi-thread encryption or decryption that boosts your using experience. Let's become faaaaaaster!
 - `...`
 
 ### Basic Features
 - `A Hybrid Encryption-decryption System and Methods of Multi-step Layered Encryption` - By using the self-developed, patented encryption algorithm, the system can perform a multi-secure encryption without increasing time consumption. In particular, the algorithm set we now use, called `Hybrid-Minus`, generally has a less than 4x time consumption than AES-256, but can achieve more than 16x security boost, safeguarding your privacy with our utmost determination.
-- `User Friendly Usage Method` - Instead of having to type, click, wait and paste once you encrypt a message, your copied plaintext/ciphertext is automatically encrypted/decrypted imperceptibly during your copying and pasting process by simply holding down the shortcut keys Ctrl + C and Ctrl + V. Feel free to protect your privacy, while at the same time saving your precious time.
+- `User Friendly Using Method` - Instead of having to type, click, wait and paste once you encrypt a message, your copied plaintext/ciphertext is automatically encrypted/decrypted imperceptibly during your copying and pasting process by simply holding down the shortcut keys `Ctrl + C` and `Ctrl + V`. Feel free to protect your privacy with robust algorithms, while saving your precious time simultaneously!
 - `Full Unicode Support` - Welcome, the world! The entire processes of encryption and decryption completely support Unicode, which means that regardless of the language of plaintext you are using, it will stay with an identical form after encryption and decryption, instead of outputting a string of garbled code when languages other than English are used.
 - `Visual Encoded Ciphertext Output` - Our self-developed visual coding scheme can output encrypted messages in visual form, meaning that regardless of the platform you are using, your message will not fail to be sent due to coding issues after encryption. Note that this will be much more efficient than a typical BASE-64.​
-- `Forever Free` - Free is the greatest justice! We use the conditional 'Apache-2.0' license, which protects our rights and interests in the developed software while allowing you to use the software unrestricted, free, and permanent. Our ultimate target is to provide free services that help everyone's daily life!
+- `Forever Free` - Free Is Our Greatest Justice! We use the conditional 'Apache-2.0' license, which protects our rights and interests in the developed software while allowing you to use the software unrestricted, free, and permanent. Our ultimate target is to provide free services that help everyone's daily life!
 - `...`
 
 
@@ -44,13 +45,13 @@ Please note that the English version of this illustration is not the only versio
 
 # 05. Future Updates
 ### Coming Soon
-- `One-Click File Encryption and Decryption` - When this feature arrives, you will be able to encrypt and decrypt files using the same shortcut keys, Ctrl + C and Ctrl + V, as you can currently do with your text messages. Feel free to confidently share whatever you want with this feature protected your utmost privacy.
-- `Multiple Algorithms Supported` - Multiple Hybird-Minus encryption algorithms will be available, and you will then be able to choose which one you like best for your encryption and decryption. It should be noted that the responsibility of multiple time-performance trade-off should be bear, since basically, the more time you spend encrypting, the safer your ciphertext will be.
-- `Suspended Status Light` - In addition to using the fundamental form to control the ON/OFF, you will see a meticulously designed `Status Light` displayed on your screen, and by clicking the `Status Light` with a button function, you can switch to turn on or turn off the main button while visually seeing the status of the backend system.
-- `Multidimensional Key Distribution` - This implementation will also be an esteemed feature according to our patent. Equipped with `Multidimensional Key Distribution`, the key distribution step will become ultra-secure, even allowing you to distribute your SMS code online!​
+- `More Diversified Algorithms Supported` - Multiple Hybird-Minus encryption algorithms will be available, and you will then be able to choose which one you like best for your encryption and decryption. It should be noted that the responsibility of multiple time-performance trade-off should be bear. Basically, the more time you spend on the encryption process, the safer your ciphertext will be.
+- `Limited SMS Code` - In order to ensure that your SMS Code is not maliciously used or forwarded, we will further improve the SMS Code generation mechanism and add a time limited verification mechanism to ensure that your SMS Code is only valid for a few minutes, so that you can ensure that your customers will not forward your SMS Code to other unrecognized and untrustworthy recipients.
+- `Multidimensional Key Distribution` - This implementation will also be an esteemed feature according to our patent. Equipped with the Multidimensional Key Distribution system, the key distribution step will become ultra-secure, even allowing you to distribute your SMS Code online, and under any risky conditions!​
+- `Integrity Verification` - We will support stricter technical verification in the future for any malicious modification of the CryptoMessage program itself, and will strictly punish any malicious behavior that may affect your ciphertext security. Pursuing your privacy and security is our ultimate goal!
 - `...`
 ### Already Known Bugs
-- `Unexpected Flashback` - Due to some unknown problems (mainly from the backend C++ process), this software might flashback every 60 minutes or so. Therefore, in order to avoid any losses of registrations of clients and logs generated along with the encryption process, please manually shut off the software when you are not using it.
+- `GUI Command Line Input Check Issue` - When you click and type words between the input notation `>> `, unexpected flashbacks may be encountered. But fortunately, when you are not deliberately trying to cause it, the bug does not normally appear.​
 - `...`
 
 
