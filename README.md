@@ -8,7 +8,7 @@
 # 02. Features
 ### Novel Updates
 - `Gargantuan Update` - A brand-new version beta 0.0.1.2 has come! Here are what we updated!
-- `One-Click File Structure Encryption` - You can now encrypt and decrypt any single file, any files, or folders (not only texts) into/from a decrypted `.denc.bin` format by using the identical shortcut keys `Ctrl + C` and `Ctrl + V`. The backend monitoring system will be automatically invoked and functioned, while it may take some time to complete the encrypting/decrypting process when files are too big.
+- `One-Click File Structure Encryption` - You can now encrypt and decrypt any single file, any files, or folders (not only texts) into/from a decrypted `.denc.bin` format by using the identical shortcut keys `Ctrl + C` and `Ctrl + V`. The backend monitoring system will be automatically invoked and functioned, while it may take some time (when the light turns to yellow) to complete the encrypting/decrypting process when files are too big.
 - `Partial Ciphertext` - Don't you just want to encrypt a part of your text instead of every single character? We can now officially assert that we can do it! By using a `*<...>*` notation in your plaintest, where the `...` represents the part that you are intending to transform into cipertexts, you can copy and paste the whole plain-cipher mixed passage, but only encrypt/decrypt the part that you want to.
 - `Encrypt Text To A File` - Is your plaintext too long to be sent on an online platform? You can encrypt your text into a file by adding a `====!!!!` notation at the very beginning or the end of the whole text to encrypt it into a copiable file, instead of encrypting it into a copiable ciphertext. Let's try to encrypt a long article into a file automatically!
 - `Ultrasafe SMS and DEL Code` - More secure `SMS Code` and `DEL Code` updated! Moreover, old types of `SMS Code` also supported! The updated version not only provide a more readible and safer `SMS Code` but also support to register any old versions of `SMS Code` that your friend sent to you. Please refer to our document to see more details to transform your old database into a new one.
@@ -28,8 +28,8 @@
 
 
 # 03. Hybrid-Minus Algorithms Supported
-- `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel -----
-- `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel *****
+- `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel ---
+- `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel ***
 - `Kaze  ` - Coming Soon ...
 - `Kuze  ` - Coming Soon ...
 - `Inoha ` - Coming Soon ...
