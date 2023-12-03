@@ -11,7 +11,7 @@ __AUTOUPD_IDFILE_00__ = "Crypto.dll"
 __AUTOUPD_IDFILE_01__ = "CryptoMessager_AutoUpdate.exe"
 __AUTOUPD_IDFILE_02__ = "CryptoMessager_GUI.exe"
 __AUTOUPD_IDFILE_03__ = "CryptoMessager_cs.exe"
-__AUTOUPD_IDFILE_04__ = "DOF%20Studio"
+__AUTOUPD_IDFILE_04__ = "DOF-Studio"
 __AUTOUPD_IDFILE_05__ = "LICENSE"
 __AUTOUPD_IDFILE_06__ = "logo_qs.ico"
 
