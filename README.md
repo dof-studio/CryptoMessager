@@ -25,9 +25,6 @@
 - `Forever Free` - Free Is Our Greatest Justice! We use the conditional 'Apache-2.0' license, which protects our rights and interests in the developed software while allowing you to use the software unrestricted, free, and permanent. Our ultimate target is to provide free services that help everyone's daily life!
 - `...`
 
-### One Graph To Show How To Use It
-![CryptoMessager_BasicUsage_Zl_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/8816ca20-c675-4dd9-80cc-ab871f450c3d)
-
 
 
 # 03. Hybrid-Minus Algorithms Supported
@@ -41,13 +38,20 @@
 
 
 
-# 04. Basic GUI Introduction
+# 04. Basic Introduction
+### One Graph To Show How To Use It
+The `graph` below briefly shows the basic ideas to encrypt and decrypt texts and files by shortcut keys `Ctrl + C` and `Ctrl + V` with our CryptoMessager system.
+
+![CryptoMessager_BasicUsage_Zl_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/8816ca20-c675-4dd9-80cc-ab871f450c3d)
+
+More functions are now supported, including `Partial Ciphertext`, `Encrypt Text To A File`, and `Directly`. You can refer to our `User Tutorial` to see more specific usages in the subfolders of the "DOCS" (highly recommended to have a read).
+
 ### GUI Usage
 The `graph` below briefly shows some basic usage of the buttons, signals, input bars, and consoles in the GUI system.
 
 ![CryptoMessager_GUI_Display_EN_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/a550fca7-f932-4827-bc94-ca12b14862d7)
 
-Please note that the English version of this illustration is not the only version provided, some translated versions of it are also available in the "DOCS" directory. Moreover, a specific, `Step-by-step Tutorial`, including directions of installation and further usage can also be found in subfolders of the "DOCS" (highly recommended to have a read).
+Please note that the English version of this illustration is not the only version provided, some translated versions of it are also available in the "DOCS" directory. Moreover, a specific, `User Tutorial`, including directions of installation and further usage can also be found in the subfolders of the "DOCS" (highly recommended to have a read).
 
 ### Command Line Usage
 The `graph` below briefly shows a majority of supported commands that can be used in the interactive command line console.
