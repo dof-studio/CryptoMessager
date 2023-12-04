@@ -26,7 +26,7 @@
 - `...`
 
 ### One Graph To Show How To Use It
-![CryptoMessager_BasicUsage_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/928067d5-8387-41eb-ad17-7faf12e2fe5a)
+![CryptoMessager_BasicUsage_Zl_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/8816ca20-c675-4dd9-80cc-ab871f450c3d)
 
 
 
