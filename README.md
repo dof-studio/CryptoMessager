@@ -26,7 +26,7 @@
 - `...`
 
 ### One Graph To Show How To Use It
-![CryptoMessager_BasicUsage_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/91c905ce-587b-40c1-8d48-441c6ae08cc5)
+![CryptoMessager_BasicUsage_0 0 1 2](https://github.com/dof-studio/CryptoMessager/assets/144514436/928067d5-8387-41eb-ad17-7faf12e2fe5a)
 
 
 
@@ -71,7 +71,7 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 - `...`
 
 ### Already Known Bugs
-- `GUI Command Line Input Check Issue` - When you click and type words between the input notation `>> `, unexpected flashbacks may be encountered. But fortunately, when you are not deliberately trying to cause it, the bug does not normally appear.​
+- `GUI Command Line Input Check Issue (Will Be Fixed in V0.0.1.3)` - When you click and type words between the input notation `>> `, unexpected flashbacks may be encountered. But fortunately, when you are not deliberately trying to cause it, the bug does not normally appear.​
 - `...`
 
 
