@@ -71,6 +71,7 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 - `Integrity Verification` - We will support stricter technical verification in the future for any malicious modification of the CryptoMessage program itself, and will strictly punish any malicious behavior that may affect your ciphertext security. Pursuing your privacy and security is our ultimate goal!
 - `Rich-Text and HTML Encryption` - You can encrypt formated Microsoft Word/Powerpoint/Excel contents.
 - `Console with Color Annotations` - Input and output will be more clear, line a code-editor.
+- `Integrated minichatter` - Where you can conduct secure P2P communication and even exchange your SMS Codes with encryption, and remotely!
 - `Beautify Our GUI Form` - Will it come soon, or, be put off forever?
 - `...`
 
