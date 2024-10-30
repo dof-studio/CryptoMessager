@@ -1,6 +1,6 @@
 ![CryptoMessager logo p2](https://github.com/dof-studio/CryptoMessager/assets/144514436/64e07cbc-c693-4d26-aaaf-df6d961119ab)
 
-0.0.1.3 Is Coming!
+0.0.1.3 Is Almost Here! Due to the loss of the source code, we have successfully restored the program and the latest version is gonna be READY~
 
 Some issues happened... I mistakenly deleted my folder of the frontend GUI system and that was NOT syncrhonized anywhere else... 
 Sadly, I have to use decompilation and rebuild it from the previous archived code (but code changed a lost this version :(
