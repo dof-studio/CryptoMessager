@@ -47,8 +47,8 @@ I hope this is not the LAST VERSION, haha
 # 03. Hybrid-Minus Algorithms Supported
 ### Algorithms Are Automatically Switched
 -  Comparable Algorithms
-- `AES 256 Native  ` - Security ----- Complexity *---- Short Text Extension *---- Long Text Extension **--- Parallel ---
-- `AES 512 IEEE    ` - Security *---- Complexity ***-- Short Text Extension *---- Long Text Extension **--- Parallel ---
+- `AES 256 Native` - Security ----- Complexity *---- Short Text Extension *---- Long Text Extension **--- Parallel ---
+- `AES 512 IEEE  ` - Security *---- Complexity ***-- Short Text Extension *---- Long Text Extension **--- Parallel ---
 -  Our Hybrid-Minus Algorithms
 - `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel ---
 - `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel ***
