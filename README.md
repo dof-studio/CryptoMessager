@@ -14,7 +14,16 @@ I hope this is not the LAST VERSION, haha
 
 
 # 02. Features
-### Novel Updates
+### Incoming Futures
+- `SMS Code Telepathy` - Yes! Remotely transmit your SMS Code to an trusted counterparty securely (using TCP/IP, so the server party should have PUBLIC IPV6 address)! It is enabled in version 0.0.1.3 coming today or tomorrow. Elliptic Curve Cryptography implemented by DOF Studio is involved to protect your SMS Code secure even in a network environment!
+- `Shortcur Controls` - Using shortcut keys to do complex tasks! Yes, we have created a series of shortcut keys that help you to activate your command without any click! Please refer to the documents or the HELP component built-in the GUI program to see the usage of shortcut keys. This will be available from version 0.0.1.3.
+- `XORE Primitive` - A light-weight encryption algorithm series that is fast, reliable, and super secure (AES 256 and above level). It will be incorporated into the Hybrid-Minus Algorithms and will be available by version 0.0.1.4 in the future.
+- `Multilanguage Support` - We first support Japanese, Koeran, Chinese, French, Russian, as well as the native English in the GUI interface starting from the version 0.0.1.4 in the future.
+- `Archivable Encryption` - Don't you want to archive your files with encryption and redundance protection? We have FREE solutions (so abandon RAR from now) with customizable Hybrid-Minus Algorithms, redundance code, and splited archives! You may be required to customize your original key and archives will be encrypted by an enhanced one (automatically conducted). This will start to be available from version 0.0.1.4 in the future.
+- `Online Chatroom and Online Meeting` - Surprise! We offer an online chatroom with (text messages, file transmission, and) Full-HD Vision plus Lossless Audio enabled online P2N meeting which supports up to 10 people at the same time. It is completely anonomous and secure (we use TCP/IP protocol, Hybird Minus Encryption, and NO-SERVER technique, so NOTHING will be stored by the thirdparty). This may be available from version 0.0.1.5 or later (Developping...)
+- `...`
+
+### New Updated Features
 - `Gargantuan Update` - A brand-new version beta 0.0.1.2 has come! Here are what we updated!
 - `One-Click File Structure Encryption` - You can now encrypt and decrypt any single file, any files, or folders (not only texts) into/from a decrypted `.denc.bin` format by using the identical shortcut keys `Ctrl + C` and `Ctrl + V`. The backend monitoring system will be automatically invoked and functioned, while it may take some time (when the light turns to yellow) to complete the encrypting/decrypting process when files are too big.
 - `Partial Ciphertext` - Don't you just want to encrypt a part of your text instead of every single character? We can now officially assert that we can do it! By using a `*<...>*` notation in your plaintest, where the `...` represents the part that you are intending to transform into cipertexts, you can copy and paste the whole plain-cipher mixed passage, but only encrypt/decrypt the part that you want to.
