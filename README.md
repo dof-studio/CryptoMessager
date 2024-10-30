@@ -7,6 +7,7 @@ Sadly, I have to use decompilation and rebuild it from the previous archived cod
 But happily, I have finished my compiling ...
 
 I hope this is not the LAST VERSION, haha
+(Never! Don't mind)
 
 # 01. Introduction
 `CryptoMessager` Version 0.0.1.2, with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for encrypted communications capable to use our self-developed, patented Hybrid-Minus set of encryption algorithms. With automatic encryption and decryption enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption for texts or any file structures only requires you to use the shortcut keys `Ctrl + C` and `Ctrl + V`, and will be automatically executed during your copying and pasting process imperceptibly. Moreover, the newly designed command line interaction system integrated in the GUI frontend allows users to perform more diverse and automated command operations!
@@ -124,4 +125,4 @@ If you satisfy ANY ONE of those prohibitive terms listed above, this software is
 
 Yours,
 
-DOF Studio, 2023.
+DOF Studio, 2024.
