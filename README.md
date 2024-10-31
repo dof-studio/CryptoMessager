@@ -21,6 +21,7 @@
 - `SMS Code Telepathy` - Remotely transmit your SMS Code to an trusted counterparty securely (using TCP/IP, so the server party should have a PUBLIC IPV6 address)! Elliptic Curve Cryptography implemented by DOF Studio is involved to protect your SMS Code secure even in a network environment!
 - `Shortcut Controls` - Using shortcut keys to do complex tasks! Yes, we have created a series of shortcut keys that help you to activate your command without any click! Please refer to the documents or the HELP component built-in the GUI program to see the usage of shortcut keys.
 - `Interactive Command Line System` - Are you bored with clicking buttons? A new command line system has been equipped within the GUI frontend, where you can use your keyboard to do everything, even including something that buttons are not able to do! Get start by entering a `Help` and clicking the enter key to see a variety of commands and syntax.
+- `Entrypoint Verification` - We use complicated mechanism including cryptographic hash and digital signature to check the integrety of the program and its dependence, preventing any mal-modification to impair your network security.
 - `Standalone HintLight` - Are you bored with our dull, outmoded GUI form? Let's control all daily tasks by using a floating, movable rectangle (while it may still be kind of dull). More details of how to use the Standalone HintLight can be found in our document.
 - `Multi-Thread Encryption` - Having a Core i9 14900K? We can now utilize at most 20 threads (with AVX-2 supported) to conduct multi-thread encryption or decryption that boosts your using experience. Let's become faaaaaaster!
 - `...`
@@ -75,12 +76,9 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 
 
 # 05. Future Updates
-### Coming Soon
-- `Automatic Update` - We have built an automatic updating system capale for checking, installing, and updating all available updates. This system has been distributed into a standalone program and will be integrated into the command line console in the following versions where the command `UPD` will be able to activate the checking and updating system. In that case, you will no longer need to manually check our website and follow with the dull `SetupWizard`, only by clicking some simple buttons can you update every new feature into your system with your data of registered clients unchanged! Moreover, our updates will be voluntary, which means you have all the rights to keep using any old versions.
+### Prospected
 - `More Diversified Algorithms Supported` - Multiple Hybird-Minus encryption algorithms will be available, and you will then be able to choose which one you like best for your encryption and decryption. It should be noted that the responsibility of multiple time-performance trade-off should be bear. Basically, the more time you spend on the encryption process, the safer your ciphertext will be.
 - `Restricted SMS Code` - In order to ensure that your SMS Code is not maliciously used or forwarded, we will further improve the SMS Code generation mechanism and add a time limited verification mechanism to ensure that your SMS Code is only valid for a few minutes, so that you can ensure that your customers will not forward your SMS Code to other unrecognized and untrustworthy recipients.
-- `Multidimensional Key Distribution` - This implementation will also be an esteemed feature according to our patent. Equipped with the Multidimensional Key Distribution system, the key distribution step will become ultra-secure, even allowing you to distribute your SMS Code online, and under any risky conditions!​
-- `Integrity Verification` - We will support stricter technical verification in the future for any malicious modification of the CryptoMessage program itself, and will strictly punish any malicious behavior that may affect your ciphertext security. Pursuing your privacy and security is our ultimate goal!
 - `Rich-Text and HTML Encryption` - You can encrypt formated Microsoft Word/Powerpoint/Excel contents.
 - `Console with Color Annotations` - Input and output will be more clear, line a code-editor.
 - `Integrated minichatter` - Where you can conduct secure P2P communication and even exchange your SMS Codes with encryption, and remotely!
@@ -88,7 +86,7 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 - `...`
 
 ### Already Known Bugs
-- `GUI Command Line Input Check Issue (Will Be Fixed in V0.0.1.3)` - When you click and type words between the input notation `>> `, unexpected flashbacks may be encountered. But fortunately, when you are not deliberately trying to cause it, the bug does not normally appear.​
+- `Automatic Update Error` - We have built an automatic updating system capale for checking, installing, and updating all available updates. But it seems not working well. We will fix it in the next version 0.0.1.4.
 - `...`
 
 
