@@ -43,9 +43,9 @@
 ### Algorithms That We Support
 - `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel ---
 - `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel ***
-- `Aoba  ` - [0.0.1.4] Security ****- Complexity ****- Short Text Extension ***-- Long Text Extension **--- ??? Coming Soon ...
-- `Kaze  ` - [0.0.1.4] Security ***-- Complexity *---- Short Text Extension **--- Long Text Extension *---- ??? Coming Soon ...
-- `Inoha ` - [0.0.1.5] Security **--- Complexity ----- Short Text Extension **--- Long Text Extension *---- ??? For stream only. Coming Soon ...
+- `Aoba  ` - [0.0.1.4] Security ****- Complexity ****- Short Text Extension ***-- Long Text Extension **--- ??? Future
+- `Kaze  ` - [0.0.1.4] Security ***-- Complexity *---- Short Text Extension **--- Long Text Extension *---- ??? Future
+- `Inoha ` - [0.0.1.5] Security **--- Complexity ----- Short Text Extension **--- Long Text Extension *---- ??? For stream only.
 - `...`
 
 
