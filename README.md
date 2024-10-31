@@ -1,16 +1,9 @@
-![CryptoMessager logo p2](https://github.com/dof-studio/CryptoMessager/assets/144514436/64e07cbc-c693-4d26-aaaf-df6d961119ab)
+![CryptoMessager logo p3](https://github.com/user-attachments/assets/a79a1f6b-77b8-4adc-941c-823668e3d607)
 
-0.0.1.3 Is Almost Here! Due to the loss of the source code, we have successfully restored the program and the latest version is gonna be READY~
-
-Some issues happened... I mistakenly deleted my folder of the frontend GUI system and that was NOT syncrhonized anywhere else... 
-Sadly, I have to use decompilation and rebuild it from the previous archived code (but code changed a lost this version :(
-But happily, I have finished my compiling ...
-
-I hope this is not the LAST VERSION, haha
-(Never! Don't mind)
+0.0.1.3 is ready!
 
 # 01. Introduction
-`CryptoMessager` Version 0.0.1.2, with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for encrypted communications capable to use our self-developed, patented Hybrid-Minus set of encryption algorithms. With automatic encryption and decryption enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption for texts or any file structures only requires you to use the shortcut keys `Ctrl + C` and `Ctrl + V`, and will be automatically executed during your copying and pasting process imperceptibly. Moreover, the newly designed command line interaction system integrated in the GUI frontend allows users to perform more diverse and automated command operations!
+`CryptoMessager` Version 0.0.1.3 (built 2024H4), with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for encrypted communications capable to use our self-developed, patented Hybrid-Minus set of encryption algorithms. With automatic encryption and decryption enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption for texts or any file structures only requires you to use the shortcut keys `Ctrl + C` and `Ctrl + V`, and will be automatically executed during your copying and pasting process imperceptibly. Moreover, the newly designed command line interaction system integrated in the GUI frontend allows users to perform more diverse and automated command operations!
 
 
 
