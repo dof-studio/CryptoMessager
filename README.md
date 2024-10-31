@@ -116,10 +116,10 @@ Hence, this software is based on a `conditional Apache License Version 2.0`, whi
 If you satisfy ANY ONE of those prohibitive terms listed above, this software is PROHIBITED for you to use. Otherwise, your using limitation belongs to stipulations in `Apache License Version 2.0`.
 
 ### Using Experience
-- `Most Important` - In the current version, DO NOT use the internet to transmit any plaintext `SMS Code`. It is because whoever receives, or just steals it, she will then be able to effortlessly decrypt whatever you encrypted. Use `SMS Code Telepathy` function available from version 0.0.1.3 instead.
-- `Most Important` - Please turn the main button OFF when you are NOT USING the automatic encrypting and decrypting system. It is because whatever you copy, although you are not intending to encrypt, it will be recognized as a plaintext without false distinction and then encrypted.
+- `Most Important` - In the current version, DO NOT use the internet to transmit any plaintext `SMS Code`. It is because whoever receives, or just steals it, they will then be able to effortlessly decrypt whatever you encrypted. Use `SMS Code Telepathy` function available from version 0.0.1.3 instead.
+- `Most Important` - Please turn the main button `OFF` when you are `NOT USING` the automatic encrypting and decrypting system. It is because whatever you copy, although you are not intending to encrypt, it will be recognized as a plaintext without false distinction and then encrypted.
 - `Helpful` - Please use the command `CLC` or `CLRCLIP` to refresh your clipboard before recopying something when your `Ctrl + C` fails to detect a change of the data intended to be encrypted/decrypted.
-- `Helpful` - Encrypted file `*.denc.bin` will be around 1.75 ~ 2.00 times in size (if not compressable) compared to the original total size with the default Hybrid-Minus encrypting algorithm `Leaf`.
+- `Helpful` - Encrypted file `*.denc.bin` will be around 1.75 ~ 2.00 times in size (if your original files are not compressable) compared to the original total size with the default Hybrid-Minus encrypting algorithm `Leaf`.
 - `...`
 
 
