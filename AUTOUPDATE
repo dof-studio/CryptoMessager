@@ -3,17 +3,21 @@
 // AUTOUPDATE
 
 __V_COLLECT__ = "beta"
-__V_GENERAL__ = "0.0.1.2"
-__V_RELEASE__ = "231130"
+__V_GENERAL__ = "0.0.1.3"
+__V_RELEASE__ = "241030"
 
-__AUTOUPD_FOLDER__ = "https://github.com/dof-studio/CryptoMessager/raw/main/BIN/Version%200.0.1.2%20Built%20231130/"
-__AUTOUPD_IDFILE_00__ = "Crypto.dll"
-__AUTOUPD_IDFILE_01__ = "CryptoMessager_AutoUpdate.exe"
-__AUTOUPD_IDFILE_02__ = "CryptoMessager_GUI.exe"
+__AUTOUPD_FOLDER__ = "https://github.com/dof-studio/CryptoMessager/raw/main/BIN/Version%200.0.1.3%20Built%20241030/"
+__AUTOUPD_IDFILE_00__ = "Certificate.dll"
+__AUTOUPD_IDFILE_01__ = "Crypto.dll"
+__AUTOUPD_IDFILE_02__ = "CryptoMessager_AutoUpdate.exe"
 __AUTOUPD_IDFILE_03__ = "CryptoMessager_cs.exe"
-__AUTOUPD_IDFILE_04__ = "DOF-Studio"
-__AUTOUPD_IDFILE_05__ = "LICENSE"
-__AUTOUPD_IDFILE_06__ = "logo_qs.ico"
+__AUTOUPD_IDFILE_04__ = "CryptoMessager_GUI.exe"
+__AUTOUPD_IDFILE_05__ = "DOF-Studio"
+__AUTOUPD_IDFILE_06__ = "HtmlAgilityPack.dll"
+__AUTOUPD_IDFILE_07__ = "LICENSE"
+__AUTOUPD_IDFILE_08__ = "logo_qs.ico"
+__AUTOUPD_IDFILE_09__ = "Signature.sga"
+__AUTOUPD_IDFILE_10__ = "Signature.sgb"
 
 // AUTOUPDATE
 //
