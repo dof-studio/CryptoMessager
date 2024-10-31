@@ -16,6 +16,7 @@ I hope this is not the LAST VERSION, haha
 
 # 02. Features
 ### Incoming Futures
+- `Dynamic SMS Code` - Each time you invoke your request to get a SMS Code, it will be an unique one (while every single one represents your identity). It may be helpful to track the leakage of a SMS Code.
 - `SMS Code Telepathy` - Yes! Remotely transmit your SMS Code to an trusted counterparty securely (using TCP/IP, so the server party should have PUBLIC IPV6 address)! It is enabled in version 0.0.1.3 coming today or tomorrow. Elliptic Curve Cryptography implemented by DOF Studio is involved to protect your SMS Code secure even in a network environment!
 - `Shortcur Controls` - Using shortcut keys to do complex tasks! Yes, we have created a series of shortcut keys that help you to activate your command without any click! Please refer to the documents or the HELP component built-in the GUI program to see the usage of shortcut keys. This will be available from version 0.0.1.3.
 - `XORE Primitive` - A light-weight encryption algorithm series that is fast, reliable, and super secure (AES 256 and above level). It will be incorporated into the Hybrid-Minus Algorithms and will be available by version 0.0.1.4 in the future.
