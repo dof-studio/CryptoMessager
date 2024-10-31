@@ -1,10 +1,7 @@
 ![CryptoMessager logo p3](https://github.com/user-attachments/assets/a79a1f6b-77b8-4adc-941c-823668e3d607)
 
-0.0.1.3 is ready!
-
 # 01. Introduction
-`CryptoMessager` Version 0.0.1.3 (built 2024H4), with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for conducting encrypted communication and online meeting that are protected by DOF-Studio-developed, patented Hybrid-Minus Algorithm set. . With automatic encryption and decryption enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption for texts or any file structures only requires you to use the shortcut keys `Ctrl + C` and `Ctrl + V`, and will be automatically executed during your copying and pasting process imperceptibly. Moreover, the newly designed command line interaction system integrated in the GUI frontend allows users to perform more diverse and automated command operations!
-
+`CryptoMessager` Version 0.0.1.3 (built 2024H4), with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for conducting encrypted communication and online meeting that are protected by DOF-Studio-developed, patented Hybrid-Minus Algorithm set. With automatic encryption and decryption mechanism enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. This software is extremely easy to use - the encryption and decryption for texts or any file structures only requires you to use the shortcut keys `Ctrl + C` and `Ctrl + V`, and will be automatically executed during your copying and pasting process imperceptibly. See below to read more features enabled this version.
 
 
 # 02. Features
