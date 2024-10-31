@@ -8,48 +8,47 @@
 
 
 # 02. Features
-### Incoming Futures
-- `Dynamic SMS Code` - Each time you invoke your request to get a SMS Code, it will be an unique one (while every single one represents your identity). It may be helpful to track the leakage of a SMS Code.
-- `SMS Code Telepathy` - Yes! Remotely transmit your SMS Code to an trusted counterparty securely (using TCP/IP, so the server party should have PUBLIC IPV6 address)! It is enabled in version 0.0.1.3 coming today or tomorrow. Elliptic Curve Cryptography implemented by DOF Studio is involved to protect your SMS Code secure even in a network environment!
-- `Shortcut Controls` - Using shortcut keys to do complex tasks! Yes, we have created a series of shortcut keys that help you to activate your command without any click! Please refer to the documents or the HELP component built-in the GUI program to see the usage of shortcut keys. This will be available from version 0.0.1.3.
-- `XORE Primitive` - A light-weight encryption algorithm series that is fast, reliable, and super secure (AES 256 and above level). It will be incorporated into the Hybrid-Minus Algorithms and will be available by version 0.0.1.4 in the future.
-- `Multilanguage Support` - We first support Japanese, Koeran, Chinese, French, Russian, as well as the native English in the GUI interface starting from the version 0.0.1.4 in the future.
-- `Archivable Encryption` - Don't you want to archive your files with encryption and redundance protection? We have FREE solutions (so abandon RAR from now) with customizable Hybrid-Minus Algorithms, redundance code, and splited archives! You may be required to customize your original key and archives will be encrypted by an enhanced one (automatically conducted). This will start to be available from version 0.0.1.4 in the future.
-- `Online Chatroom and Online Meeting` - Surprise! We offer an online chatroom with (text messages, file transmission, and) Full-HD Vision plus Lossless Audio enabled online P2N meeting which supports up to 10 people at the same time. It is completely anonomous and secure (we use TCP/IP protocol, Hybird Minus Encryption, and NO-SERVER technique, so NOTHING will be stored by the thirdparty). This may be available from version 0.0.1.5 or later (Developping...)
-- `...`
-
-### New Updated Features
-- `Gargantuan Update` - A brand-new version beta 0.0.1.2 has come! Here are what we updated!
+### Basic Features
+- `A Hybrid Encryption-decryption System and Methods of Multi-step Layered Encryption` - By using the self-developed, patented encryption algorithm, the system can perform a multi-secure encryption without increasing time consumption. In particular, the algorithm set we now use, called `Hybrid-Minus`, generally has a less than 4x time consumption than AES-256, but can achieve more than 16x security boost, safeguarding your privacy with our utmost determination.
 - `One-Click File Structure Encryption` - You can now encrypt and decrypt any single file, any files, or folders (not only texts) into/from a decrypted `.denc.bin` format by using the identical shortcut keys `Ctrl + C` and `Ctrl + V`. The backend monitoring system will be automatically invoked and functioned, while it may take some time (when the light turns to yellow) to complete the encrypting/decrypting process when files are too big.
 - `Partial Ciphertext` - Don't you just want to encrypt a part of your text instead of every single character? We can now officially assert that we can do it! By using a `*<...>*` notation in your plaintest, where the `...` represents the part that you are intending to transform into cipertexts, you can copy and paste the whole plain-cipher mixed passage, but only encrypt/decrypt the part that you want to.
 - `Encrypt Text To A File` - Is your plaintext too long to be sent on an online platform? You can encrypt your text into a file by adding a `====!!!!` notation at the very beginning or the end of the whole text to encrypt it into a copiable file, instead of encrypting it into a copiable ciphertext. Let's try to encrypt a long article into a file automatically!
-- `Ultrasafe SMS and DEL Code` - More secure `SMS Code` and `DEL Code` updated! Moreover, old types of `SMS Code` also supported! The updated version not only provide a more readible and safer `SMS Code` but also support to register any old versions of `SMS Code` that your friend sent to you. Please refer to our document to see more details to transform your old database into a new one.
-- `Interactive Command Line System` - Are you bored with clicking buttons? A new command line system has been equipped within the GUI frontend, where you can use your keyboard to do everything, even including something that buttons are not able to do! Get start by entering a `Help` and clicking the enter key to see a variety of commands and syntax.
-- `Standalone HintLight` - Are you bored with our dull, outmoded GUI form? Let's control all daily tasks by using a floating, movable rectangle (while it may still be kind of dull). More details of how to use the Standalone HintLight can be found in our document.
-- `Multi-Thread Encryption` - Having a Core i9 14900K? We can now utilize at most 20 threads (with AVX-2 supported) to conduct multi-thread encryption or decryption that boosts your using experience. Let's become faaaaaaster!
-- `...`
-
-### Basic Features
-- `A Hybrid Encryption-decryption System and Methods of Multi-step Layered Encryption` - By using the self-developed, patented encryption algorithm, the system can perform a multi-secure encryption without increasing time consumption. In particular, the algorithm set we now use, called `Hybrid-Minus`, generally has a less than 4x time consumption than AES-256, but can achieve more than 16x security boost, safeguarding your privacy with our utmost determination.
 - `User Friendly Using Method` - Instead of having to type, click, wait and paste once you encrypt a message, your copied plaintext/ciphertext is automatically encrypted/decrypted imperceptibly during your copying and pasting process by simply holding down the shortcut keys `Ctrl + C` and `Ctrl + V`. Feel free to protect your privacy with robust algorithms, while saving your precious time simultaneously!
 - `Full Unicode Support` - Welcome, the world! The entire processes of encryption and decryption completely support Unicode, which means that regardless of the language of plaintext you are using, it will stay with an identical form after encryption and decryption, instead of outputting a string of garbled code when languages other than English are used.
 - `Visual Encoded Ciphertext Output` - Our self-developed visual coding scheme can output encrypted messages in visual form, meaning that regardless of the platform you are using, your message will not fail to be sent due to coding issues after encryption. Note that this will be much more efficient than a typical BASE-64.​
 - `Forever Free` - Free Is Our Greatest Justice! We use the conditional 'Apache-2.0' license, which protects our rights and interests in the developed software while allowing you to use the software unrestricted, free, and permanent. Our ultimate target is to provide free services that help everyone's daily life!
 - `...`
 
+### New Updated Features
+- `Dynamic SMS Code` - Each time you invoke your request to get a SMS Code, it will be an unique one (while every single one represents your identity). It may be helpful to track the leakage of a SMS Code.
+- `SMS Code Telepathy` - Remotely transmit your SMS Code to an trusted counterparty securely (using TCP/IP, so the server party should have a PUBLIC IPV6 address)! Elliptic Curve Cryptography implemented by DOF Studio is involved to protect your SMS Code secure even in a network environment!
+- `Shortcut Controls` - Using shortcut keys to do complex tasks! Yes, we have created a series of shortcut keys that help you to activate your command without any click! Please refer to the documents or the HELP component built-in the GUI program to see the usage of shortcut keys.
+- `Interactive Command Line System` - Are you bored with clicking buttons? A new command line system has been equipped within the GUI frontend, where you can use your keyboard to do everything, even including something that buttons are not able to do! Get start by entering a `Help` and clicking the enter key to see a variety of commands and syntax.
+- `Standalone HintLight` - Are you bored with our dull, outmoded GUI form? Let's control all daily tasks by using a floating, movable rectangle (while it may still be kind of dull). More details of how to use the Standalone HintLight can be found in our document.
+- `Multi-Thread Encryption` - Having a Core i9 14900K? We can now utilize at most 20 threads (with AVX-2 supported) to conduct multi-thread encryption or decryption that boosts your using experience. Let's become faaaaaaster!
+- `...`
+
+### Upcoming Futures
+- `XORE Primitive` - A light-weight encryption algorithm series that is fast, reliable, and super secure (AES 256 and above level). It will be incorporated into the Hybrid-Minus Algorithms and will be available by version 0.0.1.4 in the future.
+- `The 3rd Generation SMS Code and DEL Code` - We are continuously researching and developping the most efficient and secure way to generate and transmit your SMS Code. The 3rd generation SMS and DEL Code will be incorporated and the replacement of the current version from version 0.0.1.4 (and is expected to last for a long time) along with the new `XORE Primitive` encryption set. New SMS Code will allow you to select the counterparty who is the only one that parse your SMS Code, as well as a `deadline` which indicates an expiration time of one SMS Code. Also, `SMS Code Telepathy` will support the new version as it did in the 0.0.1.3 version.
+- `Archivable Encryption` - Don't you want to archive your files with encryption and redundance protection? We have FREE solutions (so abandon RAR from now) with customizable Hybrid-Minus Algorithms, redundance code, and splited archives! You may be required to customize your original key and archives will be encrypted by an enhanced one (automatically conducted). This will start to be available from version 0.0.1.4 in the future.
+- `Better SMS Code Telepathy` - User experience will improve in the future versions, which includes logic, GUI, and speed. More details can be found at the introduction page of version 0.0.1.4.
+- `Multilanguage Support` - We first support Japanese, Koeran, Chinese, French, Russian, as well as the native English in the GUI interface starting from the version 0.0.1.5 in the future.
+- `Online Chatroom and Online Meeting` - Surprise! We offer an online chatroom with (text messages, file transmission, and) Full-HD Vision plus Lossless Audio enabled online P2N meeting which supports up to 10 people at the same time. It is completely anonomous and secure (we use TCP/IP protocol, Hybird Minus Encryption, and NO-SERVER technique, so NOTHING will be stored by the thirdparty). This may be available from version 0.0.1.5 or later (Developping...)
+- `...`
 
 
 # 03. Hybrid-Minus Algorithms Supported
 ### Comparable Algorithms
-- `AES 256 Native` - Security ----- Complexity *---- Short Text Extension *---- Long Text Extension **--- Parallel ---
-- `AES 512 IEEE  ` - Security *---- Complexity ***-- Short Text Extension *---- Long Text Extension **--- Parallel ---
+- `AES 256 Native` - Security *---- Complexity *---- Short Text Extension *---- Long Text Extension **--- Parallel ---
+- `AES 512 IEEE  ` - Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension **--- Parallel ---
 
 ### Algorithms That We Support
 - `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel ---
 - `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel ***
-- `Aoba  ` - [0.0.1.4] Security ****- Complexity ****- ??? Coming Soon ...
-- `Kaze  ` - [0.0.1.4] Security ***-- Complexity *---- ??? Coming Soon ...
-- `Inoha ` - [0.0.1.5] Security **--- Complexity ----- ??? For stream usage only. Coming Soon ...
+- `Aoba  ` - [0.0.1.4] Security ****- Complexity ****- Short Text Extension ***-- Long Text Extension **--- ??? Coming Soon ...
+- `Kaze  ` - [0.0.1.4] Security ***-- Complexity *---- Short Text Extension **--- Long Text Extension *---- ??? Coming Soon ...
+- `Inoha ` - [0.0.1.5] Security **--- Complexity ----- Short Text Extension **--- Long Text Extension *---- ??? For stream only. Coming Soon ...
 - `...`
 
 
