@@ -91,6 +91,7 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 
 ### Already Known Bugs
 - `Automatic Update Error` - We have built an automatic updating system capale for checking, installing, and updating all available updates. But it seems not working well. We will fix it in the next version 0.0.1.4.
+- `Partial Text Decryption May Fail` - We have found that under some circumstances, CryptoMessager may fail to detect the partial cipher text and fail to decrypt it. This will be solved in the next version.
 - `...`
 
 
