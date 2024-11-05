@@ -41,6 +41,7 @@ For more features and functionality, scroll down to see more. For how to use thi
 - `...`
 
 
+
 # 03. Hybrid-Minus Algorithms Supported
 ### Comparable Algorithms
 - `AES 256 Native` - Security *---- Complexity *---- Short Text Extension *---- Long Text Extension **--- Parallel ---
@@ -100,7 +101,7 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 
 
 # 06. Versions and Support Periods
-### Defiitions
+### Definitions
 - `Unstable Trail` - Only a trail update for experimental purpose. We do not ensure the stability of the software and any related code.
 - `Standard Support` - Stable versions. For versions with Standard Support, we only provide one Release, which means that you need to update to the next version to resolve performance issues and bugs that may exist in the current version.
 - `Long-period Support` - Stable versions. For versions with Long-period Support, we will provide Revision support for up to two years, which means that if you do not update to the next version (which may face protocol changes and incompatibilities, such as `Version 0.0.1.4` and `Version 0.0.1.3`), although you cannot enjoy the updated features, we will still maintain Revision every six months to solve the bugs of the current version.
@@ -113,6 +114,8 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 - `Version 0.0.1.4` - Standard Support. Project to be released in Feb 2025.
 - `Version 0.0.1.5` - Unstable Trail. Project to be released in Aug 2025.
 - `Version 0.0.1.6` - Long-period Support. Project to be released in Feb 2026.
+
+
 
 # 07. Notifications
 ### License Exception
