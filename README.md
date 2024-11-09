@@ -31,11 +31,11 @@ For more features and functionality, scroll down to see more. For how to use thi
 
 ### Upcoming Futures
 - `We Require a Custom Password` - In order to protect the security of your CryptoMessager encryption, starting from version 0.0.1.4, we require you to enter a custom password when you first start CryptoMessager. This password will help generate your SMS Code and will help you protect the data security of your local database. Because your database is protected by a password, even if your computer is attacked and the local database is leaked, the data you encrypt with CryptoMessager will not be at risk. This will be a mandatory requirement starting from version 0.0.1.4.
-- `XORE Primitive` - A light-weight encryption algorithm series that is fast, reliable, and super secure (AES 256 and above level). It will be incorporated into the Hybrid-Minus Algorithms and will be available by version 0.0.1.4 in the future.
 - `The 3rd Generation SMS Code and DEL Code` - We are continuously researching and developping the most efficient and secure way to generate and transmit your SMS Code. The 3rd generation SMS and DEL Code will be incorporated and the replacement of the current version from version 0.0.1.4 (not compatible to previous versions but is expected to last for a long time) along with the new `XORE Primitive` encryption set. New SMS Code will allow you to select the counterparty who is the only one that parse your SMS Code, as well as a `deadline` which indicates an expiration time of one SMS Code. Also, `SMS Code Telepathy` will support the new version as it did in the 0.0.1.3 version.
 - `Archivable Encryption` - Don't you want to archive your files with encryption and redundance protection? We have FREE solutions (so abandon RAR from now) with customizable Hybrid-Minus Algorithms, redundance code, and splited archives! You may be required to customize your original key and archives will be encrypted by an enhanced one (automatically conducted). This will start to be available from version 0.0.1.4 in the future.
 - `Better SMS Code Telepathy` - User experience will improve in the future versions, which includes logic, GUI, and speed. More details can be found at the introduction page of version 0.0.1.4.
 - `Automated APIs in C#` - We are going to provide a series of APIs that can partially control the local CryptoMessager system to do some automatic tasks (e.g. automatic on and off, automatic encrypting and decrypting, ...) when the user permit automatic proxy function in the main GUI interface.
+- `XORE Primitive` - A light-weight encryption algorithm series that is fast, reliable, and super secure (AES-256 upper level). It will be incorporated into the Hybrid-Minus Algorithms and will be available by version 0.0.1.5 in the future. (Research is hard at this period...)
 - `Multilanguage Support` - We first support Japanese, Koeran, Chinese, French, Russian, as well as the native English in the GUI interface starting from the version 0.0.1.5 in the future.
 - `Online Chatroom and Online Meeting` - Surprise! We offer an online chatroom with (text messages, file transmission, and) Full-HD Vision plus Lossless Audio enabled online P2N meeting which supports up to 10 people at the same time. It is completely anonomous and secure (we use TCP/IP protocol, Hybird Minus Encryption, and NO-SERVER technique, so NOTHING will be stored by the thirdparty). This may be available from version 0.0.1.5 or later (Developping...)
 - `...`
@@ -50,8 +50,8 @@ For more features and functionality, scroll down to see more. For how to use thi
 ### Algorithms That We Support
 - `Mimoji` - [0.0.1.1] Security **--- Complexity ***-- Short Text Extension *---- Long Text Extension ***-- Parallel ---
 - `Leaf  ` - [0.0.1.2] Security ***-- Complexity **--- Short Text Extension ***-- Long Text Extension **--- Parallel ***
-- `Aoba  ` - [0.0.1.4] Security ****- Complexity ****- Short Text Extension ***-- Long Text Extension **--- ??? Future
-- `Kaze  ` - [0.0.1.4] Security ***-- Complexity *---- Short Text Extension **--- Long Text Extension *---- ??? Future
+- `Aoba  ` - [0.0.1.5] Security ****- Complexity ****- Short Text Extension ***-- Long Text Extension **--- ??? Future
+- `Kaze  ` - [0.0.1.5] Security ***-- Complexity *---- Short Text Extension **--- Long Text Extension *---- ??? Future
 - `Konoha` - [0.0.1.5] Security **--- Complexity ----- Short Text Extension **--- Long Text Extension *---- ??? Future
 - `Inoha ` - [0.0.1.5] Security **--- Complexity ----- Short Text Extension **--- Long Text Extension *---- ??? For stream only.
 - `...`
