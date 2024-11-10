@@ -56,6 +56,7 @@ For more features and functionality, scroll down to see more. For how to use thi
 - `Inoha ` - [0.0.1.5] Security **--- Complexity ----- Short Text Extension **--- Long Text Extension *---- ??? For stream only.
 - `...`
 
+Note, from version 0.0.1.4, `Mimoji` and `Leaf` will be reconstructed and enhanced to provide extra security but with less operating time complexity (SIMD optimization).
 
 
 # 04. Basic Introduction
