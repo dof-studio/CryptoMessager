@@ -5,7 +5,9 @@ This software `CryptoMessager` Version 0.0.1.3 (built 2024H4, stable version), w
 
 This software is extremely easy to use - the encryption and decryption for texts or any file structures only requires you to use the shortcut keys `Ctrl + C` and `Ctrl + V`, and will be automatically executed during your copying and pasting process imperceptibly. 
 
-For more features and functionality, scroll down to see more. For how to use this software, see folder "DOCS" and "EXAMPLES".
+For more features and functionality, scroll down to see more. For how to use this software, see folder "DOCS" and "EXAMPLES". 
+
+Special warning here! DO NOT transmit any SMS Code in a plain text form on the Internet! It represents your whole identity.
 
 # 02. Features
 ### Basic Features
