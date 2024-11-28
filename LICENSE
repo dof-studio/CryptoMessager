@@ -186,6 +186,40 @@
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
+   APPENDIX: Additional Non-Military Use Restriction
+
+   1. Non-Military Use Only:
+      The rights granted by this license, including the rights to use, 
+      reproduce, distribute, modify, and publicly perform the Software, 
+      are strictly conditioned upon the following restriction:
+
+      This Software, including any derivative works, may not be used for 
+      any military purpose, including but not limited to:
+      - The development, design, manufacture, or operation of weapons, 
+      defense systems, or military equipment.
+      - Use in military training, communication, or operations.
+      - Use by entities directly serving or producing for military entities.
+      - Use by entities promoting military operations and wars.
+
+   2. Violation of this Restriction:
+      Any use of the Software or derivative works in violation of the
+      Non-Military Use Restriction constitutes a material breach of this 
+      license and will result in the immediate termination of all rights 
+      granted under this license.
+
+   3. Termination of Patent Rights:
+      If any entity violates the Non-Military Use Restriction, the licensee’s 
+      rights to any patents explicitly or implicitly granted under this 
+      license are automatically terminated.
+
+   4. Notification and Documentation:
+      Users must explicitly acknowledge compliance with the Non-Military Use 
+      Restriction in any derivative works or redistributed versions of 
+      this Software by including the following statement:
+      "This software and its derivatives are subject to the Non-Military 
+      Use Restriction under the Apache License, Version 2.0 with Non-Military
+      Use Restriction. Use for any military purpose is prohibited."
+
    Copyright [2024] [DOF Studio]
 
    Licensed under the Apache License, Version 2.0 (the "License");
