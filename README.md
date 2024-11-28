@@ -1,5 +1,9 @@
 ![CryptoMessager logo p3](https://github.com/user-attachments/assets/a79a1f6b-77b8-4adc-941c-823668e3d607)
 
+# 00. Special Notification
+This software is licensed under the Apache License, Version 2.0 with Non-Military Use Restriction. 
+See the `LICENSE` file for details.
+
 # 01. Introduction
 This software `CryptoMessager` Version 0.0.1.3 (built 2024H4, stable version), with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for conducting encrypted communication and online meeting that are protected by DOF-Studio-developed, patented Hybrid-Minus Algorithm set. With automatic encryption and decryption mechanism enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. 
 
