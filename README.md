@@ -133,7 +133,7 @@ This software is licensed under the `Apache License, Version 2.0 with Conditiona
 - 2. The user is, or belongs to an organization whose targets offend DOF Studio's basic aims.
 - 3. The user is, or belongs to an organization that is regarded as an explicit prohibitive user we listed below.
 
-If you satisfy ANY ONE of those prohibitive terms listed above, this software is PROHIBITED for you to use. Otherwise, your using limitation belongs to stipulations in `Apache License Version 2.0`.
+If you satisfy ANY ONE of those prohibitive terms listed above, this software is PROHIBITED for you to use. Otherwise, your rights and obligations are under stipulations from the standard `Apache License Version 2.0`.
 
 ### Using Experience
 - `Most Important` - In the current version, DO NOT use the internet to transmit any plaintext `SMS Code`. It is because whoever receives, or just steals it, they will then be able to effortlessly decrypt whatever you encrypted. Use `SMS Code Telepathy` function available from version 0.0.1.3 instead.
