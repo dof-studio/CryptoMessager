@@ -2,7 +2,12 @@
 
 # 00. Special Notification
 This software is licensed under the `Apache License, Version 2.0 with Non-Military Use Restriction` since version 0.0.1.3. 
+
+In short, except MILITARY RELATED USE, this software can be regarded as one under the standard `Apache 2.0` license.
+
 See the `LICENSE` file for details.
+
+
 
 # 01. Introduction
 This software `CryptoMessager` Version 0.0.1.3 (built 2024H4, stable version), with its GUI frontend `CryptoMessager_GUI` included, is a user-friendly toolkit for conducting encrypted communication and online meeting that are protected by DOF-Studio-developed, patented Hybrid-Minus Algorithm set. With automatic encryption and decryption mechanism enabled, you can communicate confidently with registered users on any insecure Internet platform - because a robust encryption system will always protect your privacy from ciphertext intrusion. 
@@ -12,6 +17,8 @@ This software is extremely easy to use - the encryption and decryption for texts
 For more features and functionality, scroll down to see more. For how to use this software, see folder "DOCS" and "EXAMPLES". 
 
 Special warning here! DO NOT transmit any SMS Code in a plain text form on the Internet! It represents your whole identity.
+
+
 
 # 02. Features
 ### Basic Features
@@ -63,6 +70,7 @@ Special warning here! DO NOT transmit any SMS Code in a plain text form on the I
 - `...`
 
 Note, from version 0.0.1.4, `Mimoji` and `Leaf` will be reconstructed and enhanced to provide extra security but with less operating time complexity (SIMD optimization).
+
 
 
 # 04. Basic Introduction
