@@ -1,9 +1,7 @@
 ![CryptoMessager logo p3](https://github.com/user-attachments/assets/a79a1f6b-77b8-4adc-941c-823668e3d607)
 
 # 00. Special Notification
-This software is licensed under the `Apache License, Version 2.0 with Non-Military Use Restriction` since version 0.0.1.3. 
-
-In short, except MILITARY RELATED USE, this software can be regarded as one under the standard `Apache 2.0` license.
+This software is licensed under the `Apache License, Version 2.0 with Non-Military Use Restriction` since version 0.0.1.3. In short, except `MILITARY RELATED USE`, this software can be regarded as one under the standard `Apache 2.0` license.
 
 See the `LICENSE` file for details.
 
