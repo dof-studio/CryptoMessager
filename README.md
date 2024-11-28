@@ -121,7 +121,7 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 
 
 # 07. Notifications
-### License
+### Non-military Apache Version 2.0 License
 Please read the following terms carefully and check whether you, or your entity, satisfy the requirement of using this software `CryptoMessager`.
 Our team DOF Studio is a non-profitable organization which aims at pursuing a world without War, Discrimination, Unequity, and Anti-democracy.
 This software is licensed under the `Apache License, Version 2.0 with Conditional Use Restriction`, which allows any non-military entity to use, commercially use, redistribute, or modify EXCEPT:
