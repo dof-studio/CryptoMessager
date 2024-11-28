@@ -128,15 +128,17 @@ Please note that you can use a `HELP;` command in the command line to get a simi
 ### Non-military Apache Version 2.0 License
 Please read the following terms carefully and check whether you, or your entity, satisfy the requirement of using this software `CryptoMessager`.
 Our team DOF Studio is a non-profitable organization which aims at pursuing a world without War, Discrimination, Unequity, and Anti-democracy.
-This software is licensed under the `Apache License, Version 2.0 with Conditional Use Restriction`, which allows any non-military entity to use, commercially use, redistribute, or modify EXCEPT if you:
-      - Conduct development, design, manufacture, or operation of weapons, defense systems, or military equipment.
-      - Use in military training, communication, or operations.
-      - Use by entities directly serving or producing for military entities.
-      - Use by entities promoting military operations and wars.
+This software is licensed under the `Apache License, Version 2.0 with Conditional Use Restriction`, which allows any non-military entity to use, commercially use, redistribute, or modify EXCEPT if you are or the software is:
+- Conduct development, design, manufacture, or operation of weapons, defense systems, or military equipment.
+- Used in military training, communication, or operations.
+- Used by entities directly serving or producing for military entities.
+- Used by entities promoting military operations and wars.
       
 If you satisfy ANY ONE of those prohibitive terms listed above, this software is PROHIBITED for you to use. Otherwise, your rights and obligations are under stipulations from the standard `Apache License Version 2.0`.
 
 See `LICENSE` for more comprehensive legal information.
+
+
 
 ### Using Experience
 - `Most Important` - In the current version, DO NOT use the internet to transmit any plaintext `SMS Code`. It is because whoever receives, or just steals it, they will then be able to effortlessly decrypt whatever you encrypted. Use `SMS Code Telepathy` function available from version 0.0.1.3 instead.
