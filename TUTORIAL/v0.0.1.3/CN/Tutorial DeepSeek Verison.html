@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoMessager 完整功能模拟器 v0.0.1.3</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        
+        /* 模拟 Windows 经典字体 */
+        .win-font { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .win-mono { font-family: 'Consolas', 'Courier New', monospace; }
+
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+
+        /* 模拟 Windows 按钮按下的效果 */
+        .win-btn {
+            background-color: #e1e1e1;
+            border: 1px solid #adadad;
+            border-radius: 2px;
+            transition: all 0.1s;
+        }
+        .win-btn:hover { background-color: #e5f1fb; border-color: #0078d7; }
+        .win-btn:active { background-color: #cce4f7; border-color: #005499; }
+        
+        /* 巨大的开关按钮样式 */
+        .big-switch {
+            background-color: #e1e1e1;
+            border: 2px solid #0078d7; 
+        }
+
+        /* 状态灯 */
+        .status-box {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #999;
+        }
+
+        /* 动画 */
+        @keyframes pulse {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
+        }
+        
+        .pulse { animation: pulse 2s infinite; }
+        
+        /* 密文样式 */
+        .cipher-text {
+            color: #e2b714;
+            font-family: 'Consolas', monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 2px 4px;
+            border-radius: 2px;
+            word-break: break-all;
+        }
+        
+        .plain-text {
+            color: #10b981;
+            font-family: 'Consolas', monospace;
+        }
+        
+        /* 标记样式 */
+        .marker {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        /* 代码块样式 */
+        .code-block {
+            background: rgba(0,0,0,0.3);
+            border-left: 3px solid #3b82f6;
+            padding: 10px;
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* 命令提示符 */
+        .cmd-prompt {
+            color: #10b981;
+            font-family: 'Consolas', monospace;
+        }
+        
+        .cmd-output {
+            color: #d1d5db;
+            font-family: 'Consolas', monospace;
+        }
+        
+        .cmd-error {
+            color: #ef4444;
+            font-family: 'Consolas', monospace;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 h-screen overflow-hidden">
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // --- 核心逻辑模拟 ---
+        const mockEncrypt = (text) => {
+            if (text.startsWith("DOFM=")) return text;
+            const b64 = btoa(unescape(encodeURIComponent(text)));
+            return `DOFM=136b0dc0=${b64.substring(0, 10)}\\${b64.substring(10)}!219M1`;
+        };
+        
+        const mockDecrypt = (cipher) => {
+            if (!cipher.startsWith("DOFM=")) return cipher;
+            // 模拟解密
+            return "Here is something I want to encrypt.";
+        };
+
+        const partialEncrypt = (text) => {
+            return text.replace(/\*<(.*?)>\*/g, (match, p1) => `*<${mockEncrypt(p1)}>*`);
+        };
+        
+        const partialDecrypt = (text) => {
+            return text.replace(/\*<DOFM=(.*?)>\*/g, () => `a1b2c3d4`);
+        };
+
+        // 模拟文件加密
+        const mockFileEncrypt = () => {
+            const id = Math.random().toString(16).substr(2, 8);
+            return `Enc_${id}_Rdx6af8.denc.bin`;
+        };
+        
+        // 模拟文本转文件加密
+        const mockTextToFile = (text) => {
+            const id = Math.random().toString(16).substr(2, 8);
+            return `Enc_${id}_Rdxd7a2.denc.bin`;
+        };
+
+        const App = () => {
+            // UI State
+            const [activeSection, setActiveSection] = useState(0);
+            const [consoleLogs, setConsoleLogs] = useState([
+                "[CryptoMessager_GUI Console Helper Version 0.0.1.3]",
+                "[© DOF Studio/NathMath 2024]",
+                "[Version 0.0.1.3 (Built 240721)]",
+                "[Released on github.com/dof-studio/CryptoMessager]",
+                ">> System Initialized.",
+                ">> Ready for operation.",
+                ">> Type 'HELP' for command list."
+            ]);
+            const [isCryptoOn, setIsCryptoOn] = useState(false);
+            const [statusColor, setStatusColor] = useState('#008000'); // Green
+            const [statusBusy, setStatusBusy] = useState(false);
+            const [virtualClipboard, setVirtualClipboard] = useState("");
+            const [importValue, setImportValue] = useState("");
+            const [clients, setClients] = useState([]);
+            const [cmdInput, setCmdInput] = useState("");
+            
+            // 测试数据
+            const [testPlaintext, setTestPlaintext] = useState("Here is something I want to encrypt.");
+            const [testCiphertext, setTestCiphertext] = useState("DOFM=136b0dc0=bu0gws5\\7bfpnmTVnpw&r0{Q0c7QopxN9@)F61FS!2+Zjtgx`fXE3vj9nSqvsDs(m3s@GU9IkAfBSCwB5bfGlIj+8!219M1");
+            const [testPartialText, setTestPartialText] = useState("Emma, I think we should adjust our investment positions.\nWe need to invest in some more S&P 500 ETF funds.\nThe password of the account is *<a1b2c3d4>*.\nCould you please help me operate it?");
+            const [testPartialCipher, setTestPartialCipher] = useState("Emma, I think we should adjust our investment positions.\nWe need to invest in some more S&P 500 ETF funds.\nThe password of the account is *<DOFM=136b0dc0=4)Aqb]`r2r{ok\\foe^90ng5\\95iDv(spsNg^n9U6wz6w1>*.\nCould you please help me operate it?");
+            const [testLongText, setTestLongText] = useState("Emma, this is pi to 1'000'000 decimal places: 3.14159265358979323846264338327950288...");
+            
+            // 文件模拟
+            const [selectedFiles, setSelectedFiles] = useState([
+                "D:/Emma/Love Letter.txt",
+                "D:/President/Election Manifesto.mp4", 
+                "D:/Secret/Amazing Novels/"
+            ]);
+            
+            // SMS Code Telepathy
+            const [telepathyMode, setTelepathyMode] = useState(null); // null, 'server', 'client'
+            const [telepathyPassword, setTelepathyPassword] = useState("");
+            const [linkCode, setLinkCode] = useState("");
+            
+            // 命令行历史
+            const [cmdHistory, setCmdHistory] = useState([]);
+            const [cmdHistoryIndex, setCmdHistoryIndex] = useState(-1);
+            
+            // Refs
+            const consoleEndRef = useRef(null);
+            const cmdInputRef = useRef(null);
+            const rightPanelRef = useRef(null);
+            
+            // Auto scroll console
+            // useEffect(() => {
+            //     consoleEndRef.current?.scrollIntoView({ behavior: "smooth" });
+            // }, [consoleLogs]);
+            
+            // 焦点到命令行输入
+            useEffect(() => {
+                if (cmdInputRef.current && activeSection === 6) {
+                    cmdInputRef.current.focus();
+                }
+            }, [activeSection]);
+
+            const addLog = (msg, type = "info") => {
+                const timestamp = new Date().toLocaleTimeString();
+                let prefix = ">>";
+                
+                if (type === "error") {
+                    prefix = "!! ERROR:";
+                } else if (type === "success") {
+                    prefix = "<< SUCCESS:";
+                } else if (type === "warning") {
+                    prefix = "?? WARNING:";
+                } else if (type === "cmd") {
+                    prefix = "$";
+                }
+                
+                setConsoleLogs(prev => [...prev, `${prefix} ${timestamp} ${msg}`]);
+            };
+
+            // Toggle Logic
+            const toggleCrypto = () => {
+                if (statusBusy) {
+                    addLog("System is busy, please wait...", "warning");
+                    return;
+                }
+                
+                if (isCryptoOn) {
+                    setIsCryptoOn(false);
+                    setStatusColor('#008000'); // Green
+                    addLog("Turned Crypto OFF!", "info");
+                } else {
+                    setIsCryptoOn(true);
+                    setStatusColor('#FF0000'); // Red
+                    addLog("Turned Crypto ON!", "success");
+                }
+            };
+
+            // 模拟繁忙状态
+            const simulateBusy = (duration = 800, callback) => {
+                setStatusBusy(true);
+                setStatusColor('#FFFF00'); // Yellow (Busy)
+                
+                setTimeout(() => {
+                    setStatusBusy(false);
+                    setStatusColor(isCryptoOn ? '#FF0000' : '#008000');
+                    if (callback) callback();
+                }, duration);
+            };
+
+            // Copy Simulation Logic
+            const handleSimulateCopy = (text, operation = "copy") => {
+                if (!isCryptoOn && operation === "encrypt") {
+                    addLog("Crypto is OFF. No encryption performed.", "warning");
+                    setVirtualClipboard(text);
+                    return;
+                }
+                
+                if (operation === "decrypt" && !clients.length) {
+                    addLog("Cannot decrypt: No clients added. Add sender's SMS Code first.", "error");
+                    return;
+                }
+                
+                setVirtualClipboard(text);
+                addLog(`Clipboard updated: ${text.substring(0, 30)}...`, "info");
+                
+                if (isCryptoOn) {
+                    simulateBusy(800, () => {
+                        let result = text;
+                        
+                        // 加密操作
+                        if (operation === "encrypt") {
+                            if (text.includes("*<") && text.includes(">*")) {
+                                result = partialEncrypt(text);
+                                addLog("Partial Encryption Complete.", "success");
+                            } else if (text.startsWith("====!!!!") || text.endsWith("====!!!!")) {
+                                result = `"${mockTextToFile(text)}" 792KB`;
+                                addLog("Text converted to encrypted file.", "success");
+                            } else {
+                                result = mockEncrypt(text);
+                                addLog("Text Encrypted.", "success");
+                            }
+                        } 
+                        // 解密操作
+                        else if (operation === "decrypt") {
+                            if (text.includes("*<DOFM=")) {
+                                result = partialDecrypt(text);
+                                addLog("Partial Ciphertext Decrypted.", "success");
+                            } else if (text.startsWith("DOFM=")) {
+                                result = mockDecrypt(text);
+                                addLog("Ciphertext Decrypted.", "success");
+                            } else if (text.includes(".denc.bin")) {
+                                // 文件解密
+                                result = `Files extracted to D:/tmp/\n- Love Letter.txt\n- Election Manifesto.mp4\n- Amazing Novels/`;
+                                addLog("File archive decrypted.", "success");
+                            } else {
+                                addLog("Not a recognizable ciphertext.", "warning");
+                            }
+                        }
+                        
+                        setVirtualClipboard(result);
+                    });
+                }
+            };
+
+            // 文件加密模拟
+            const handleFileEncrypt = () => {
+                if (!isCryptoOn) {
+                    addLog("Turn Crypto ON first to encrypt files.", "warning");
+                    return;
+                }
+                
+                simulateBusy(1200, () => {
+                    const encryptedFile = `"${mockFileEncrypt()}" 477MB`;
+                    setVirtualClipboard(encryptedFile);
+                    addLog("File structure encrypted to archive.", "success");
+                });
+            };
+
+            // Button Actions
+            const handleShareMe = () => {
+                if (telepathyMode === null) {
+                    const choice = confirm("使用 SMS Code Telepathy (P2P) 吗？\n点击确定进入 Telepathy 模式，取消则生成本地 SMS Code。");
+                    
+                    if (!choice) {
+                        // 普通 SMS Code 生成
+                        const code = "DOFM=136b0dc0=bu0gws5\\7bfpnmTVnpw&r0{Q0c7QopxN9@)F61FS!2+Zjtgx`fXE3vj9nSqvsDs(m3s@GU9IkAfBSCwB5bfGlIj+8!219M1";
+                        addLog(`Your SMS Code: ${code.substring(0, 30)}...`, "success");
+                        setVirtualClipboard(code);
+                        setImportValue(code);
+                    } else {
+                        // Telepathy 模式
+                        const serverChoice = confirm("成为服务器 (创建链接) 吗？\n点击确定成为服务器，取消则作为连接者。");
+                        
+                        if (serverChoice) {
+                            setTelepathyMode('server');
+                            addLog("Starting SMS Code Telepathy Server...", "info");
+                            
+                            // 模拟网络测试
+                            setTimeout(() => {
+                                addLog("Network test passed.", "success");
+                                const link = `LNK|${Math.random().toString(16).substr(2, 8)}|192.168.1.100|2001:db8::1|180`;
+                                setLinkCode(link);
+                                setVirtualClipboard(link);
+                                addLog(`Link Code generated: ${link}`, "success");
+                                addLog("Share this link and password with counterparty.", "info");
+                            }, 1000);
+                        } else {
+                            setTelepathyMode('client');
+                            addLog("Enter Link Code from server to connect.", "info");
+                        }
+                    }
+                } else if (telepathyMode === 'server') {
+                    // 服务器模式，已有链接
+                    addLog("Telepathy link already created. Share link with counterparty.", "info");
+                }
+            };
+
+            const handleNewClient = () => {
+                if (!importValue) {
+                    addLog("Import field is empty.", "warning");
+                    return;
+                }
+                
+                if (importValue.startsWith("LNK") && telepathyMode === 'client') {
+                    // Telepathy 连接
+                    const password = prompt("Enter password for Telepathy link:");
+                    if (password === "TempPass123") {
+                        simulateBusy(1500, () => {
+                            addLog("SMS Codes Successfully Exchanged!", "success");
+                            setClients(prev => [...prev, { id: Date.now(), name: "Remote User", code: importValue }]);
+                            setImportValue("");
+                            setTelepathyMode(null);
+                        });
+                    } else {
+                        addLog("Invalid password input!", "error");
+                    }
+                } else if (importValue.startsWith("DOFM=")) {
+                    // 普通 SMS Code 添加
+                    const clientName = importValue === "DOFM=136b0dc0=bu0gws5\\7bfpnmTVnpw&r0{Q0c7QopxN9@)F61FS!2+Zjtgx`fXE3vj9nSqvsDs(m3s@GU9IkAfBSCwB5bfGlIj+8!219M1" 
+                        ? "Self (本地用户)" 
+                        : "Remote Client";
+                    
+                    setClients(prev => [...prev, { id: Date.now(), name: clientName, code: importValue }]);
+                    addLog(`Client Added: ${clientName}`, "success");
+                    setImportValue("");
+                } else {
+                    addLog("Invalid SMS Code or Link Code format.", "error");
+                }
+            };
+            
+            const handleDeleteMe = () => {
+                if (clients.length === 0) {
+                    addLog("No clients to delete.", "warning");
+                    return;
+                }
+                
+                const delCode = prompt("Enter DEL Code to delete client:");
+                if (delCode) {
+                    setClients([]);
+                    addLog("All clients deleted with DEL Code.", "info");
+                }
+            };
+            
+            const handleClearConsole = () => {
+                setConsoleLogs([
+                    "[CryptoMessager_GUI Console Helper Version 0.0.1.3]",
+                    "[© DOF Studio/NathMath 2024]",
+                    "[Version 0.0.1.3 (Built 240721)]",
+                    "[Released on github.com/dof-studio/CryptoMessager]",
+                    ">> Console cleared."
+                ]);
+            };
+            
+            // 命令行处理函数
+            const executeCommand = (cmdLine) => {
+                if (!cmdLine.trim()) return;
+                
+                // 添加到历史
+                setCmdHistory(prev => [...prev.slice(-9), cmdLine]); // 只保留最近10条
+                setCmdHistoryIndex(-1);
+                
+                // 显示命令
+                addLog(`$ ${cmdLine}`, "cmd");
+                
+                const parts = cmdLine.trim().split(/\s+/);
+                const cmd = parts[0].toUpperCase();
+                const args = parts.slice(1);
+                
+                // 执行命令
+                switch(cmd) {
+                    case 'ON':
+                    case 'TURNON':
+                        if (!isCryptoOn) toggleCrypto();
+                        else addLog("Crypto is already ON.", "info");
+                        break;
+                        
+                    case 'OFF':
+                    case 'TURNOFF':
+                        if (isCryptoOn) toggleCrypto();
+                        else addLog("Crypto is already OFF.", "info");
+                        break;
+                        
+                    case 'SW':
+                    case 'SWITCH':
+                        toggleCrypto();
+                        break;
+                        
+                    case 'C':
+                    case 'CLR':
+                    case 'CLS':
+                        handleClearConsole();
+                        break;
+                        
+                    case 'CLC':
+                    case 'CLRCLIP':
+                        setVirtualClipboard("");
+                        addLog("Clipboard cleared.", "success");
+                        break;
+                        
+                    case 'MYS':
+                    case 'MYSMS':
+                        const smsCode = "DOFM=136b0dc0=bu0gws5\\7bfpnmTVnpw&r0{Q0c7QopxN9@)F61FS!2+Zjtgx`fXE3vj9nSqvsDs(m3s@GU9IkAfBSCwB5bfGlIj+8!219M1";
+                        addLog(`Your SMS Code: ${smsCode}`, "info");
+                        break;
+                        
+                    case 'MYSCPY':
+                    case 'MYSMSCPY':
+                        const smsCode2 = "DOFM=136b0dc0=bu0gws5\\7bfpnmTVnpw&r0{Q0c7QopxN9@)F61FS!2+Zjtgx`fXE3vj9nSqvsDs(m3s@GU9IkAfBSCwB5bfGlIj+8!219M1";
+                        setVirtualClipboard(smsCode2);
+                        addLog("SMS Code copied to clipboard.", "success");
+                        break;
+                        
+                    case 'ADD':
+                    case 'NEW':
+                        if (args.length === 1) {
+                            setImportValue(args[0]);
+                            setTimeout(() => {
+                                handleNewClient();
+                            }, 100);
+                        } else {
+                            addLog("Usage: ADD <SMS_Code>", "error");
+                        }
+                        break;
+                        
+                    case 'DEL':
+                    case 'DELETE':
+                        if (args.length === 1) {
+                            setClients([]);
+                            addLog(`Client deleted with DEL Code: ${args[0]}`, "info");
+                        } else {
+                            addLog("Usage: DEL <DEL_Code>", "error");
+                        }
+                        break;
+                        
+                    case 'D':
+                    case 'DO':
+                    case 'DIRECTLY':
+                        if (virtualClipboard) {
+                            if (virtualClipboard.startsWith("DOFM=")) {
+                                handleSimulateCopy(virtualClipboard, "decrypt");
+                            } else {
+                                handleSimulateCopy(virtualClipboard, "encrypt");
+                            }
+                        } else {
+                            addLog("Clipboard is empty.", "warning");
+                        }
+                        break;
+                        
+                    case 'H':
+                    case 'HELP':
+                        if (args.length === 0) {
+                            const helpText = `Available commands: ON, OFF, SWITCH, CLS, CLC, MYSMS, MYSMSCPY, ADD, DEL, DIRECTLY, SAVE, MIN, QUIT, HINT, RET, UPD, HELP`;
+                            addLog(helpText, "info");
+                            setVirtualClipboard(helpText);
+                        } else if (args.length === 1) {
+                            const cmdHelp = args[0].toUpperCase();
+                            const helpMap = {
+                                'ON': 'Turn ON the real-time encrypting system immediately.',
+                                'OFF': 'Turn OFF the real-time encrypting system immediately.',
+                                'SWITCH': 'Toggle ON/OFF the real-time encrypting system.',
+                                'CLS': 'Clear the console screen.',
+                                'CLC': 'Clear your clipboard.',
+                                'MYSMS': 'Print your local SMS Code.',
+                                'MYSMSCPY': 'Copy your SMS Code to clipboard.',
+                                'ADD': 'Add a new client: ADD <SMS_Code>',
+                                'DEL': 'Delete a client: DEL <DEL_Code>',
+                                'DIRECTLY': 'Encrypt/decrypt clipboard content.',
+                                'SAVE': 'Save database to drive.',
+                                'MIN': 'Minimize window.',
+                                'QUIT': 'Exit CryptoMessager.',
+                                'HINT': 'Toggle HintLight.',
+                                'RET': 'Get last feedback.',
+                                'UPD': 'Check for updates.',
+                                'HELP': 'Show this help.'
+                            };
+                            
+                            if (helpMap[cmdHelp]) {
+                                addLog(`${cmdHelp}: ${helpMap[cmdHelp]}`, "info");
+                            } else {
+                                addLog(`No help found for command: ${cmdHelp}`, "warning");
+                            }
+                        }
+                        break;
+                        
+                    case 'S':
+                    case 'SAV':
+                    case 'SAVE':
+                        addLog("Database saved to drive.", "success");
+                        break;
+                        
+                    case 'M':
+                    case 'MIN':
+                        addLog("Window minimized (simulated).", "info");
+                        break;
+                        
+                    case 'Q':
+                    case 'QUIT':
+                        if (confirm("Are you sure you want to exit CryptoMessager?")) {
+                            addLog("Exiting CryptoMessager...", "info");
+                            // 模拟退出
+                            setTimeout(() => {
+                                alert("CryptoMessager closed (simulation). Refresh page to restart.");
+                            }, 500);
+                        }
+                        break;
+                        
+                    case 'HT':
+                    case 'HINT':
+                        addLog("HintLight toggled (simulated).", "info");
+                        break;
+                        
+                    case 'R':
+                    case 'RET':
+                    case 'INFO':
+                        addLog("Last feedback: Operation completed successfully.", "info");
+                        break;
+                        
+                    case 'U':
+                    case 'UPD':
+                        addLog("Checking for updates...", "info");
+                        setTimeout(() => {
+                            addLog("You are using the latest version (0.0.1.3).", "success");
+                        }, 1000);
+                        break;
+                        
+                    case 'W':
+                    case 'WEB':
+                        addLog("Official website: https://github.com/dof-studio/CryptoMessager", "info");
+                        break;
+                        
+                    default:
+                        addLog(`Unknown command: ${cmd}. Type 'HELP' for command list.`, "error");
+                }
+                
+                setCmdInput("");
+            };
+            
+            // 快捷键处理
+            const handleKeyDown = (e) => {
+                // 命令行历史导航
+                if (e.key === 'ArrowUp' && cmdHistory.length > 0) {
+                    e.preventDefault();
+                    const newIndex = cmdHistoryIndex < cmdHistory.length - 1 ? cmdHistoryIndex + 1 : 0;
+                    setCmdHistoryIndex(newIndex);
+                    setCmdInput(cmdHistory[cmdHistory.length - 1 - newIndex] || "");
+                } else if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const newIndex = cmdHistoryIndex > 0 ? cmdHistoryIndex - 1 : -1;
+                    setCmdHistoryIndex(newIndex);
+                    setCmdInput(newIndex >= 0 ? cmdHistory[cmdHistory.length - 1 - newIndex] : "");
+                }
+                
+                // 命令行输入框回车
+                if (e.key === 'Enter' && e.target.id === 'cmd-input') {
+                    executeCommand(cmdInput);
+                }
+                
+                // 全局快捷键 (模拟)
+                if (e.ctrlKey && e.altKey) {
+                    // Ctrl+Alt+O+P = SWITCH
+                    if (e.key === 'p' || e.key === 'P') {
+                        e.preventDefault();
+                        toggleCrypto();
+                    }
+                    // Ctrl+Alt+K+L = CLS
+                    else if (e.key === 'l' || e.key === 'L') {
+                        e.preventDefault();
+                        handleClearConsole();
+                    }
+                    // Ctrl+Alt+K+K = CLC
+                    else if (e.key === 'k' || e.key === 'K') {
+                        e.preventDefault();
+                        setVirtualClipboard("");
+                        addLog("Clipboard cleared (shortcut).", "success");
+                    }
+                    // Ctrl+Alt+E+E = DIRECTLY
+                    else if (e.key === 'e' || e.key === 'E') {
+                        e.preventDefault();
+                        if (virtualClipboard) {
+                            if (virtualClipboard.startsWith("DOFM=")) {
+                                handleSimulateCopy(virtualClipboard, "decrypt");
+                            } else {
+                                handleSimulateCopy(virtualClipboard, "encrypt");
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // 添加快捷键监听
+            useEffect(() => {
+                window.addEventListener('keydown', handleKeyDown);
+                return () => window.removeEventListener('keydown', handleKeyDown);
+            }, [isCryptoOn, virtualClipboard, cmdInput, cmdHistory, cmdHistoryIndex]);
+
+            // --- 教程章节 ---
+            const sections = [
+                {
+                    id: "startup",
+                    title: "🚀 1. 启动与设置",
+                    subtitle: "启动系统、生成SMS Code、添加客户端",
+                    content: (
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold text-white">启动 CryptoMessager_GUI 系统</h3>
+                            <p className="text-slate-400">首先需要添加自己的 SMS Code，否则无法解密自己加密的内容。</p>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-green-400 mb-2">操作步骤：</h4>
+                                <ol className="list-decimal list-inside space-y-2 text-sm text-slate-300">
+                                    <li>点击右侧的 <span className="font-bold text-white bg-slate-700 px-1 rounded">Share Me</span> 按钮</li>
+                                    <li>在弹窗中选择 <span className="font-bold text-white">取消 (No)</span> 使用普通 SMS Code</li>
+                                    <li>观察控制台生成的 SMS Code</li>
+                                    <li>SMS Code 会自动复制到剪贴板并填入 Import 框</li>
+                                    <li>点击 <span className="font-bold text-white bg-slate-700 px-1 rounded">New Client</span> 添加自己</li>
+                                </ol>
+                                
+                                <div className="mt-4 p-3 bg-slate-900 rounded border border-slate-600">
+                                    <h5 className="font-semibold text-blue-400 text-sm mb-2">注意事项：</h5>
+                                    <ul className="text-xs text-slate-400 space-y-1">
+                                        <li>• 不要从不明来源获取程序，确保程序完整性</li>
+                                        <li>• 更新版本时注意本地数据库兼容性</li>
+                                        <li>• 不要在虚拟机或调试环境中使用</li>
+                                        <li>• 发现异常时考虑程序可能被恶意篡改</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                },
+                {
+                    id: "text-crypto",
+                    title: "🔐 2. 文本加密与解密",
+                    subtitle: "基础文本加密、解密操作",
+                    content: (
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold text-white">加密消息为密文</h3>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-yellow-400 mb-2">加密流程：</h4>
+                                <ol className="list-decimal list-inside space-y-2 text-sm text-slate-300">
+                                    <li>点击中间的 <span className="text-2xl font-bold text-slate-400">OFF</span> 按钮开启监控</li>
+                                    <li>状态指示灯变为 <span className="text-red-500">红色</span>，控制台提示 "Turned Crypto ON!"</li>
+                                    <li>复制任意文本 (模拟 Ctrl+C)，程序会自动加密</li>
+                                    <li>密文会出现在系统剪贴板视图中</li>
+                                </ol>
+                                
+                                <div className="mt-4">
+                                    <h5 className="font-semibold text-green-400 text-sm mb-2">测试加密：</h5>
+                                    <div className="flex gap-2">
+                                        <textarea 
+                                            className="flex-1 bg-slate-900 border border-slate-600 rounded px-2 py-1 text-sm h-20" 
+                                            value={testPlaintext}
+                                            onChange={(e) => setTestPlaintext(e.target.value)}
+                                        />
+                                        <div className="flex flex-col gap-2">
+                                            <button 
+                                                onClick={() => handleSimulateCopy(testPlaintext, "encrypt")}
+                                                className="bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded text-sm"
+                                            >
+                                                模拟加密 (Ctrl+C)
+                                            </button>
+                                            <button 
+                                                onClick={() => handleSimulateCopy(testCiphertext, "decrypt")}
+                                                className="bg-green-600 hover:bg-green-500 px-3 py-1 rounded text-sm"
+                                            >
+                                                模拟解密 (Ctrl+C)
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-blue-400 mb-2">解密流程：</h4>
+                                <ol className="list-decimal list-inside space-y-2 text-sm text-slate-300">
+                                    <li>确保已添加发送者的 SMS Code</li>
+                                    <li>开启监控 (状态指示灯为红色)</li>
+                                    <li>复制密文 (模拟 Ctrl+C)，程序会自动解密</li>
+                                    <li>解密后的明文会出现在剪贴板中</li>
+                                </ol>
+                                
+                                <div className="mt-4 text-xs text-slate-500">
+                                    <p><span className="font-bold">注意：</span> 解密需要已添加发送者的 SMS Code。长时间加密/解密时，状态指示灯会变为黄色。</p>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                },
+                {
+                    id: "partial",
+                    title: "📝 3. 部分文本加密",
+                    subtitle: "只加密文本中的敏感部分",
+                    content: (
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold text-white">只加密敏感部分</h3>
+                            <p className="text-slate-400">有时只有消息的一部分是敏感的，我们不想让整个消息失去可读性。</p>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-yellow-400 mb-2">示例消息：</h4>
+                                <div className="code-block text-sm">
+                                    Emma, I think we should adjust our investment positions.<br/>
+                                    We need to invest in some more S&P 500 ETF funds.<br/>
+                                    The password of the account is <span className="marker">*&lt;a1b2c3d4&gt;*</span>.<br/>
+                                    Could you please help me operate it?
+                                </div>
+                                
+                                <p className="text-xs text-slate-400 mt-2">使用 <span className="marker">*&lt;</span> 和 <span className="marker">&gt;*</span> 标记需要加密的部分。</p>
+                            </div>
+                            
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="border border-slate-700 p-3 rounded bg-slate-800/50">
+                                    <h5 className="font-semibold text-green-400 text-sm mb-2">部分加密</h5>
+                                    <button 
+                                        onClick={() => handleSimulateCopy(testPartialText, "encrypt")}
+                                        className="w-full text-left text-xs bg-slate-900 p-2 rounded hover:bg-slate-700 transition"
+                                    >
+                                        👉 点击加密标记文本
+                                    </button>
+                                    <p className="text-xs text-slate-500 mt-2">只有 *&lt; &gt;* 内的内容会被加密</p>
+                                </div>
+                                
+                                <div className="border border-slate-700 p-3 rounded bg-slate-800/50">
+                                    <h5 className="font-semibold text-blue-400 text-sm mb-2">部分解密</h5>
+                                    <button 
+                                        onClick={() => handleSimulateCopy(testPartialCipher, "decrypt")}
+                                        className="w-full text-left text-xs bg-slate-900 p-2 rounded hover:bg-slate-700 transition"
+                                    >
+                                        👉 点击解密密文
+                                    </button>
+                                    <p className="text-xs text-slate-500 mt-2">自动识别并解密加密部分</p>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                },
+                {
+                    id: "file-crypto",
+                    title: "📁 4. 文件结构加密",
+                    subtitle: "加密文件和文件夹为.denc.bin存档",
+                    content: (
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold text-white">加密文件和文件夹</h3>
+                            <p className="text-slate-400">CryptoMessager 支持加密整个文件结构为 .denc.bin 存档。</p>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-yellow-400 mb-2">文件加密示例：</h4>
+                                <div className="code-block text-sm">
+                                    【selected files and folders】<br/>
+                                    "D:/Emma/Love Letter.txt"<br/>
+                                    "D:/President/Election Manifesto.mp4"<br/>
+                                    "D:/Secret/Amazing Novels/"<br/>
+                                    <br/>
+                                    【encrypted cipher file】<br/>
+                                    "Enc_2ba49be5dffb0338_Rdx6af8.denc.bin"  477MB
+                                </div>
+                                
+                                <div className="mt-4 flex gap-2">
+                                    <button 
+                                        onClick={handleFileEncrypt}
+                                        className="flex-1 bg-purple-600 hover:bg-purple-500 px-3 py-2 rounded text-sm"
+                                    >
+                                        模拟文件加密 (Ctrl+C)
+                                    </button>
+                                    <button 
+                                        onClick={() => handleSimulateCopy("Enc_2ba49be5dffb0338_Rdx6af8.denc.bin", "decrypt")}
+                                        className="flex-1 bg-green-600 hover:bg-green-500 px-3 py-2 rounded text-sm"
+                                    >
+                                        模拟文件解密 (Ctrl+C)
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-blue-400 mb-2">文件加密特点：</h4>
+                                <ul className="text-sm text-slate-300 space-y-2">
+                                    <li className="flex items-start">
+                                        <span className="text-green-400 mr-2">✓</span>
+                                        <span>加密后的文件以 <span className="font-mono">.denc.bin</span> 结尾</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-green-400 mr-2">✓</span>
+                                        <span>支持加密多个文件和文件夹</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-green-400 mr-2">✓</span>
+                                        <span>大文件加密时指示灯变为黄色</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-green-400 mr-2">✓</span>
+                                        <span>内置文件完整性检查和循环冗余添加功能</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    )
+                },
+                {
+                    id: "text-to-file",
+                    title: "📄 5. 文本到文件加密",
+                    subtitle: "将超长文本加密为文件",
+                    content: (
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold text-white">加密超长文本为文件</h3>
+                            <p className="text-slate-400">许多在线平台有消息长度限制，可以将超长文本加密为文件。</p>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-yellow-400 mb-2">使用方法：</h4>
+                                <p className="text-sm text-slate-300 mb-2">文本以 <span className="marker">====!!!!</span> 开头或结尾时，会自动加密为文件。</p>
+                                
+                                <div className="code-block text-sm">
+                                    【ultra-long text with text-to-file notation】<br/>
+                                    <span className="marker">====!!!!</span>Emma, this is pi to 1'000'000 decimal places: 3.14159265358979323846264338327950288...
+                                </div>
+                                
+                                <div className="mt-4">
+                                    <h5 className="font-semibold text-green-400 text-sm mb-2">测试文本转文件：</h5>
+                                    <div className="flex gap-2">
+                                        <textarea 
+                                            className="flex-1 bg-slate-900 border border-slate-600 rounded px-2 py-1 text-sm h-20" 
+                                            value={testLongText}
+                                            onChange={(e) => setTestLongText(e.target.value)}
+                                        />
+                                        <div className="flex flex-col gap-2">
+                                            <button 
+                                                onClick={() => handleSimulateCopy(`====!!!!${testLongText}`, "encrypt")}
+                                                className="bg-pink-600 hover:bg-pink-500 px-3 py-1 rounded text-sm"
+                                            >
+                                                添加前缀 ====!!!!
+                                            </button>
+                                            <button 
+                                                onClick={() => handleSimulateCopy(`${testLongText}====!!!!`, "encrypt")}
+                                                className="bg-pink-600 hover:bg-pink-500 px-3 py-1 rounded text-sm"
+                                            >
+                                                添加后缀 ====!!!!
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-blue-400 mb-2">解密结果：</h4>
+                                <p className="text-sm text-slate-300">解密后生成一个 txt 文件，包含所有原始文本（不含 <span className="marker">====!!!!</span> 标记）。</p>
+                                <div className="code-block text-sm mt-2">
+                                    【decrypted plain txt file】<br/>
+                                    "TextFile_b59110a021b5cd45.txt"  976KB
+                                </div>
+                            </div>
+                        </div>
+                    )
+                },
+                {
+                    id: "telepathy",
+                    title: "🔗 6. SMS Code Telepathy",
+                    subtitle: "安全的P2P密钥交换",
+                    content: (
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold text-white">安全的密钥交换</h3>
+                            <p className="text-slate-400">通过安全的网络通信交换 SMS Code，降低明文 SMS Code 泄露风险。</p>
+                            
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                    <h4 className="font-semibold text-green-400 mb-2">作为服务器 (创建链接)</h4>
+                                    <ol className="list-decimal list-inside space-y-2 text-xs text-slate-300">
+                                        <li>点击 <span className="font-bold">Share Me</span>，选择使用 Telepathy</li>
+                                        <li>选择成为服务器 (创建者)</li>
+                                        <li>输入密码保护链接</li>
+                                        <li>网络测试通过后生成 Link Code</li>
+                                        <li>将 Link Code 和密码发送给对方</li>
+                                    </ol>
+                                    
+                                    <div className="mt-4">
+                                        <button 
+                                            onClick={handleShareMe}
+                                            className="w-full bg-blue-600 hover:bg-blue-500 px-3 py-2 rounded text-sm"
+                                        >
+                                            启动 Telepathy 服务器
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                    <h4 className="font-semibold text-blue-400 mb-2">作为连接者 (加入链接)</h4>
+                                    <ol className="list-decimal list-inside space-y-2 text-xs text-slate-300">
+                                        <li>从服务器获取 Link Code 和密码</li>
+                                        <li>将 Link Code 粘贴到 Import 框</li>
+                                        <li>点击 <span className="font-bold">New Client</span></li>
+                                        <li>在弹出的窗口中输入密码(示例默认TempPass123)</li>
+                                        <li>等待密钥交换完成</li>
+                                    </ol>
+                                    
+                                    <div className="mt-4">
+                                        <input 
+                                            type="text"
+                                            placeholder="在此粘贴 Link Code..."
+                                            className="w-full bg-slate-900 border border-slate-600 rounded px-2 py-1 text-sm mb-2"
+                                            value={linkCode}
+                                            onChange={(e) => setLinkCode(e.target.value)}
+                                        />
+                                        <button 
+                                            onClick={() => {
+                                                setImportValue(linkCode);
+                                                setTelepathyMode('client');
+                                            }}
+                                            className="w-full bg-green-600 hover:bg-green-500 px-3 py-2 rounded text-sm"
+                                        >
+                                            连接 Telepathy 链接
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className="border border-red-700/30 p-4 rounded bg-red-900/20">
+                                <h4 className="font-semibold text-red-400 mb-2">如果 SMS Code 泄露怎么办？</h4>
+                                <ul className="text-xs text-slate-300 space-y-1">
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">!</span>
+                                        <span>立即停止使用当前账户进行加密和解密</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">!</span>
+                                        <span>尽可能控制密文的传播</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">!</span>
+                                        <span>通知使用 CryptoMessager 的朋友和同事删除你的信息</span>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="text-red-400 mr-2">!</span>
+                                        <span>更改 Windows 用户名以绑定新的 SMS Code</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    )
+                },
+                {
+                    id: "commands",
+                    title: "⌨️ 7. 命令行与快捷键",
+                    subtitle: "控制台命令和快捷键参数",
+                    content: (
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold text-white">命令行控制</h3>
+                            <p className="text-slate-400">在控制台中输入命令来操作 CryptoMessager。</p>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-yellow-400 mb-2">常用命令：</h4>
+                                <div className="space-y-2 text-sm">
+                                    <div className="grid grid-cols-3 gap-2">
+                                        <div className="cmd-prompt">ON/OFF</div>
+                                        <div className="col-span-2 cmd-output">开启/关闭实时加密系统</div>
+                                        
+                                        <div className="cmd-prompt">SWITCH</div>
+                                        <div className="col-span-2 cmd-output">切换加密系统状态</div>
+                                        
+                                        <div className="cmd-prompt">MYSMS</div>
+                                        <div className="col-span-2 cmd-output">显示你的 SMS Code</div>
+                                        
+                                        <div className="cmd-prompt">ADD &lt;code&gt;</div>
+                                        <div className="col-span-2 cmd-output">添加客户端 (SMS Code)</div>
+                                        
+                                        <div className="cmd-prompt">DIRECTLY</div>
+                                        <div className="col-span-2 cmd-output">立即加密/解密剪贴板内容</div>
+                                        
+                                        <div className="cmd-prompt">CLS</div>
+                                        <div className="col-span-2 cmd-output">清空控制台</div>
+                                        
+                                        <div className="cmd-prompt">CLC</div>
+                                        <div className="col-span-2 cmd-output">清空剪贴板</div>
+                                        
+                                        <div className="cmd-prompt">HELP</div>
+                                        <div className="col-span-2 cmd-output">显示帮助信息</div>
+                                    </div>
+                                </div>
+                                
+                                <div className="mt-4">
+                                    <h5 className="font-semibold text-green-400 text-sm mb-2">在下方输入命令：</h5>
+                                    <div className="flex">
+                                        <span className="cmd-prompt bg-slate-900 px-2 py-1 rounded-l border border-slate-700">$</span>
+                                        <input 
+                                            ref={cmdInputRef}
+                                            id="cmd-input"
+                                            type="text"
+                                            value={cmdInput}
+                                            onChange={(e) => setCmdInput(e.target.value)}
+                                            onKeyDown={(e) => {
+                                                if (e.key === 'Enter') {
+                                                    executeCommand(cmdInput);
+                                                }
+                                            }}
+                                            className="flex-1 bg-slate-900 border border-slate-700 border-l-0 px-2 py-1 text-sm rounded-r focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                            placeholder="输入命令，按回车执行 (例如: ON, OFF, HELP)"
+                                            autoComplete="off"
+                                        />
+                                    </div>
+                                    <p className="text-xs text-slate-500 mt-2">使用 ↑↓ 箭头键浏览命令历史</p>
+                                </div>
+                            </div>
+                            
+                            <div className="border border-slate-700 p-4 rounded bg-slate-800/50">
+                                <h4 className="font-semibold text-blue-400 mb-2">快捷键：</h4>
+                                <div className="grid grid-cols-2 gap-3 text-sm">
+                                    <div className="bg-slate-900 p-2 rounded">
+                                        <div className="font-mono text-yellow-400">Ctrl+Alt+O+P</div>
+                                        <div className="text-xs text-slate-400">SWITCH - 切换加密状态</div>
+                                    </div>
+                                    <div className="bg-slate-900 p-2 rounded">
+                                        <div className="font-mono text-yellow-400">Ctrl+Alt+K+L</div>
+                                        <div className="text-xs text-slate-400">CLS - 清空控制台</div>
+                                    </div>
+                                    <div className="bg-slate-900 p-2 rounded">
+                                        <div className="font-mono text-yellow-400">Ctrl+Alt+K+K</div>
+                                        <div className="text-xs text-slate-400">CLC - 清空剪贴板</div>
+                                    </div>
+                                    <div className="bg-slate-900 p-2 rounded">
+                                        <div className="font-mono text-yellow-400">Ctrl+Alt+E+E</div>
+                                        <div className="text-xs text-slate-400">DIRECTLY - 立即加密/解密</div>
+                                    </div>
+                                    <div className="bg-slate-900 p-2 rounded">
+                                        <div className="font-mono text-yellow-400">Ctrl+Alt+S+A</div>
+                                        <div className="text-xs text-slate-400">SAVE - 保存数据库</div>
+                                    </div>
+                                    <div className="bg-slate-900 p-2 rounded">
+                                        <div className="font-mono text-yellow-400">Ctrl+Alt+Q+Q</div>
+                                        <div className="text-xs text-slate-400">QUIT - 退出程序</div>
+                                    </div>
+                                </div>
+                                
+                                <div className="mt-4 text-xs text-slate-400">
+                                    <p>提示：在本模拟器中，部分快捷键已启用。尝试按 <span className="font-mono bg-slate-800 px-1 rounded">Ctrl+Alt+O+P</span> 切换加密状态。</p>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+            ];
+
+            return (
+                <div className="flex flex-col md:flex-row h-screen font-sans">
+                    {/* --- 左侧教程栏 (现代暗黑风格) --- */}
+                    <div className="flex-1 flex flex-col md:w-5/12 h-full bg-slate-900 border-r border-slate-800 overflow-y-auto">
+                        <header className="p-6 border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-10">
+                            <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400">
+                                CryptoMessager 模拟器 v0.0.1.3
+                            </h1>
+                            <p className="text-xs text-slate-500 mt-1">交互式学习平台 - 支持命令行和快捷键</p>
+                            
+                            <div className="flex items-center mt-4">
+                                <div className={`w-3 h-3 rounded-full mr-2 ${clients.length > 0 ? 'bg-green-500' : 'bg-red-500'}`}></div>
+                                <span className="text-xs text-slate-400 mr-4">
+                                    {clients.length > 0 ? `${clients.length} 个客户端已添加` : '未添加客户端'}
+                                </span>
+                                <div className={`w-3 h-3 rounded-full mr-2 ${isCryptoOn ? 'bg-red-500' : 'bg-green-500'}`}></div>
+                                <span className="text-xs text-slate-400">
+                                    加密系统: {isCryptoOn ? '开启' : '关闭'}
+                                </span>
+                            </div>
+                        </header>
+
+                        <div className="p-6 pb-32">
+                            {/* 导航 Tabs */}
+                            <div className="flex flex-wrap gap-2 mb-6">
+                                {sections.map((sec, idx) => (
+                                    <button 
+                                        key={idx}
+                                        onClick={() => setActiveSection(idx)}
+                                        className={`px-3 py-2 rounded-lg text-xs font-semibold transition-colors flex flex-col items-start text-left ${activeSection === idx ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
+                                    >
+                                        <span className="font-bold">{sec.title}</span>
+                                        <span className="text-[10px] opacity-80 mt-0.5">{sec.subtitle}</span>
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* 内容区 */}
+                            <div className="animate-fade-in">
+                                {sections[activeSection].content}
+                            </div>
+
+                            {/* 底部导航 */}
+                            <div className="flex justify-between mt-8 pt-6 border-t border-slate-800">
+                                <button 
+                                    disabled={activeSection === 0} 
+                                    onClick={() => setActiveSection(p => p - 1)}
+                                    className="text-sm text-slate-400 hover:text-white disabled:opacity-30 flex items-center"
+                                >
+                                    <i className="ri-arrow-left-line mr-1"></i> 上一节
+                                </button>
+                                <div className="text-xs text-slate-500">
+                                    第 {activeSection + 1} 节 / 共 {sections.length} 节
+                                </div>
+                                <button 
+                                    disabled={activeSection === sections.length - 1} 
+                                    onClick={() => setActiveSection(p => p + 1)}
+                                    className="text-sm bg-blue-600 px-4 py-1.5 rounded hover:bg-blue-500 disabled:opacity-30 disabled:bg-slate-700 flex items-center"
+                                >
+                                    下一节 <i className="ri-arrow-right-line ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* --- 右侧模拟器区域 (可滑动) --- */}
+                    <div ref={rightPanelRef} className="md:w-7/12 bg-[#202020] overflow-y-auto">
+                        <div className="min-h-full flex flex-col items-center justify-center p-4 md:p-10">
+                            {/* 1. 真实 GUI 容器 (Windows 窗体样式) */}
+                            <div className="bg-[#f0f0f0] w-full max-w-[650px] shadow-2xl rounded-sm border border-gray-400 win-font text-black select-none mb-6">
+                                
+                                {/* Title Bar */}
+                                <div className="flex justify-between items-center px-3 py-2 bg-white border-b border-gray-300">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-5 h-5 bg-blue-500 rounded-sm flex items-center justify-center text-white text-xs font-bold">🛡️</div>
+                                        <span className="text-sm text-gray-700">CryptoMessager_GUI Version 0.0.1.3</span>
+                                        <span className="text-xs text-gray-500 ml-2">{
+                                            isCryptoOn ? '监控中...' : '就绪'
+                                        }</span>
+                                    </div>
+                                    <div className="flex gap-4 text-gray-400 text-lg">
+                                        <button className="hover:text-black">-</button>
+                                        <button className="hover:text-black">□</button>
+                                        <button className="hover:text-red-500">×</button>
+                                    </div>
+                                </div>
+
+                                {/* Main Body */}
+                                <div className="p-4 space-y-3">
+                                    
+                                    {/* Row 1: Import */}
+                                    <div className="flex items-center gap-2 h-8">
+                                        <label className="w-16 text-right font-serif text-lg">Import:</label>
+                                        <input 
+                                            type="text" 
+                                            value={importValue}
+                                            onChange={(e) => setImportValue(e.target.value)}
+                                            className="flex-1 h-full border border-gray-400 px-1 text-sm bg-white placeholder-gray-400" 
+                                            placeholder="Add a client by entering a SMS Code or Link Code here."
+                                        />
+                                        <button onClick={handleNewClient} className="win-btn w-28 h-full font-serif text-lg">New Client</button>
+                                    </div>
+
+                                    {/* Row 2: Delete */}
+                                    <div className="flex items-center gap-2 h-8">
+                                        <label className="w-16 text-right font-serif text-lg">Delete:</label>
+                                        <input type="text" className="flex-1 h-full border border-gray-400 px-1 text-sm bg-white placeholder-gray-400" placeholder="Delete a client by entering a DEL Code here." />
+                                        <button onClick={handleDeleteMe} className="win-btn w-28 h-full font-serif text-lg">Del Client</button>
+                                    </div>
+
+                                    {/* Row 3: ON/OFF Big Button & Status */}
+                                    <div className="flex items-start gap-2 mt-2">
+                                        <label className="w-16 text-right font-serif text-lg mt-2">ON/OFF:</label>
+                                        
+                                        {/* The Big Button */}
+                                        <button 
+                                            onClick={toggleCrypto}
+                                            className={`flex-1 h-24 big-switch text-5xl text-black relative active:top-[1px] font-sans ${statusBusy ? 'pulse' : ''}`}
+                                            disabled={statusBusy}
+                                        >
+                                            {isCryptoOn ? 'ON' : 'OFF'}
+                                        </button>
+
+                                        {/* Status Area */}
+                                        <div className="w-28 flex flex-col gap-1">
+                                            <label className="font-serif text-lg">Status:</label>
+                                            <div className="status-box" style={{ backgroundColor: statusColor }}></div>
+                                        </div>
+                                    </div>
+
+                                    {/* Row 4: Console & Right Buttons */}
+                                    <div className="flex items-start gap-2 mt-2 h-64">
+                                        <label className="w-16 text-right font-serif text-lg">Console:</label>
+                                        
+                                        {/* Console Output */}
+                                        <div className="flex-1 h-full border-2 border-gray-400 bg-white p-1 overflow-y-auto win-mono text-sm leading-tight">
+                                            {consoleLogs.map((log, i) => (
+                                                <div key={i} className={
+                                                    log.startsWith("!!") ? "text-red-600" :
+                                                    log.startsWith("<<") ? "text-green-600" :
+                                                    log.startsWith("??") ? "text-amber-600" :
+                                                    log.startsWith("$") ? "text-blue-600" :
+                                                    log.includes("ERROR") ? "text-red-600" :
+                                                    log.includes("SUCCESS") ? "text-green-600" :
+                                                    log.includes("WARNING") ? "text-amber-600" :
+                                                    "text-black"
+                                                }>{log}</div>
+                                            ))}
+                                            <div ref={consoleEndRef}></div>
+                                        </div>
+
+                                        {/* Right Side Button Stack */}
+                                        <div className="w-28 flex flex-col gap-2">
+                                            <button onClick={handleShareMe} className="win-btn h-8 font-serif text-lg">Share Me</button>
+                                            <button onClick={handleDeleteMe} className="win-btn h-8 font-serif text-lg">Delete Me</button>
+                                            <button onClick={() => executeCommand("DIRECTLY")} className="win-btn h-8 font-serif text-lg">Directly</button>
+                                            <button onClick={() => executeCommand("INFO")} className="win-btn h-8 font-serif text-lg">Ret Info</button>
+                                            <div className="h-2"></div> {/* Spacer */}
+                                            <button className="win-btn h-8 font-serif text-lg">View Log</button>
+                                            <button className="win-btn h-8 font-serif text-lg">Clear Log</button>
+                                            <button onClick={handleClearConsole} className="win-btn h-8 font-serif text-lg">Clr Consol</button>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Client List */}
+                                    {clients.length > 0 && (
+                                        <div className="mt-2 border border-gray-300 p-2 bg-white">
+                                            <div className="font-serif text-lg mb-1">已添加客户端:</div>
+                                            <div className="text-sm">
+                                                {clients.map(client => (
+                                                    <div key={client.id} className="flex items-center py-1 border-b border-gray-100 last:border-0">
+                                                        <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                                                        <span>{client.name}</span>
+                                                        <span className="text-gray-500 text-xs ml-2 truncate" title={client.code}>
+                                                            ({client.code.substring(0, 20)}...)
+                                                        </span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* 2. 虚拟剪贴板监控 (辅助工具) */}
+                            <div className="w-full max-w-[650px] mt-6 bg-black rounded-lg border border-slate-700 p-4 shadow-xl">
+                                <div className="flex justify-between items-center mb-2">
+                                    <span className="text-xs font-mono text-green-400">
+                                        <i className="ri-clipboard-line mr-1"></i>SYSTEM CLIPBOARD MONITOR
+                                    </span>
+                                    <span className="text-[10px] text-slate-500">
+                                        状态: {isCryptoOn ? '加密监控开启' : '加密监控关闭'} | 
+                                        客户端: {clients.length} | 
+                                        {statusBusy && <span className="text-yellow-400 ml-1"> 处理中...</span>}
+                                    </span>
+                                </div>
+                                <textarea 
+                                    readOnly
+                                    value={virtualClipboard}
+                                    className="w-full h-24 bg-slate-900 text-slate-300 font-mono text-xs p-2 rounded border border-slate-800 focus:outline-none resize-none"
+                                    placeholder="等待复制操作..."
+                                ></textarea>
+                                <div className="flex justify-between mt-2 text-xs text-slate-500">
+                                    <span>剪贴板内容会在此显示</span>
+                                    <button 
+                                        onClick={() => setVirtualClipboard("")}
+                                        className="text-slate-400 hover:text-white"
+                                    >
+                                        清空剪贴板
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            {/* 3. 快速测试面板 */}
+                            <div className="w-full max-w-[650px] mt-4 grid grid-cols-2 gap-3">
+                                <div className="bg-slate-900/50 p-3 rounded border border-slate-700">
+                                    <div className="text-xs text-slate-400 mb-1">加密测试</div>
+                                    <button 
+                                        onClick={() => handleSimulateCopy("Hello CryptoMessager!", "encrypt")}
+                                        className="w-full text-left text-xs bg-slate-800 p-2 rounded hover:bg-slate-700 transition"
+                                    >
+                                        🔒 加密: Hello CryptoMessager!
+                                    </button>
+                                </div>
+                                <div className="bg-slate-900/50 p-3 rounded border border-slate-700">
+                                    <div className="text-xs text-slate-400 mb-1">解密测试</div>
+                                    <button 
+                                        onClick={() => handleSimulateCopy(testCiphertext, "decrypt")}
+                                        className="w-full text-left text-xs bg-slate-800 p-2 rounded hover:bg-slate-700 transition"
+                                    >
+                                        🔓 解密示例密文
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            {/* 4. 快捷键提示 */}
+                            <div className="w-full max-w-[650px] mt-6 p-4 bg-slate-900/30 rounded border border-slate-700">
+                                <div className="text-xs text-slate-400 mb-2">快捷键提示: </div>
+                                <div className="grid grid-cols-3 gap-2 text-xs">
+                                    <div className="flex items-center">
+                                        <kbd className="bg-slate-800 px-2 py-1 rounded mr-2">Ctrl+Alt+O+P</kbd>
+                                        <span className="text-slate-300">切换加密</span>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <kbd className="bg-slate-800 px-2 py-1 rounded mr-2">Ctrl+Alt+K+L</kbd>
+                                        <span className="text-slate-300">清空控制台</span>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <kbd className="bg-slate-800 px-2 py-1 rounded mr-2">Ctrl+Alt+E+E</kbd>
+                                        <span className="text-slate-300">立即加/解密</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
