@@ -5,7 +5,7 @@ This software is licensed under the `Apache License, Version 2.0 with Non-Milita
 
 See the `LICENSE` file for details.
 
-See the url [https://raw.githubusercontent.com/dof-studio/CryptoMessager/refs/heads/main/TUTORIAL/v0.0.1.3/CN/Tutorial%20DeepSeek%20Verison.html] for a Chinese interactive tutorial.
+See the url [Tutorial](https://dof-studio.github.io/CryptoMessager/TUTORIAL/v0.0.1.3/CN/Tutorial%20DeepSeek%20Verison.html) for a Chinese interactive tutorial.
 
 
 
